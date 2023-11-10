@@ -107,13 +107,8 @@ if button:
 
     # Exibindo a árvore de decisão
     fig, ax = plt.subplots(figsize=(12, 8))
-    plot_tree(clf, feature_names=X.columns, class_names=["No", "Yes"], filled=True, rounded=True, ax=ax)
+    plot_tree(clf, feature_names=X.columns.tolist(), class_names=["No", "Yes"], filled=True, rounded=True, ax=ax)
     st.pyplot(fig)
-    # Convertendo o objeto Index em uma lista
-    feature_names = X.columns.tolist()
-
-    # Chamando a função plot_tree com a lista de nomes
-    plot_tree(clf, feature_names=feature_names, class_names=["No", "Yes"], filled=True, rounded=True, ax=ax)
 
     # Fazendo a previsão para o usuário
     user_pred = clf.predict(user_data.drop("Outcome", axis=1))
