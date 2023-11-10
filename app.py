@@ -103,7 +103,7 @@ def generate_pdf_report(patient_name, prediction, decision_tree_fig):
     img = Image.open(img_path)
     max_width = 500
     scaling_factor = max_width / float(img.width)
-    img = img.resize((max_width, int(float(img.height) * scaling_factor)), Image.ANTIALIAS)
+    img = img.resize((max_width, int(float(img.height) * scaling_factor)), Image.LANCZOS)
 
     img.save(img_path)
     
