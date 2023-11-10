@@ -108,6 +108,11 @@ def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
 
     c.showPage()
     c.save()
+    with open(f"Diabetes_Report_{paciente_nome}.pdf", "rb") as pdf_file:
+        b64_pdf = base64.b64encode(pdf_file.read()).decode()
+
+    #href = f'<a href="data:application/pdf;base64,{b64_pdf}" download="Diabetes_Report_{patient_name}.pdf">Baixar Relatório em PDF</a>'
+    #st.markdown(href, unsafe_allow_html=True)
 
     st.success(f"Relatório em PDF gerado com sucesso para {paciente_nome}")
     st.download_button(
@@ -115,6 +120,7 @@ def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
         key=f"Diabetes_Report_{paciente_nome}.pdf",
         data=f"Diabetes_Report_{paciente_nome}.pdf",
     )
+    
 
 # Verificando se o botão foi clicado
 if button:
