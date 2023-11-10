@@ -109,6 +109,12 @@ if button:
     fig, ax = plt.subplots(figsize=(12, 8))
     plot_tree(clf, feature_names=X.columns, class_names=["No", "Yes"], filled=True, rounded=True, ax=ax)
     st.pyplot(fig)
+    # Mostrando os valores dos parâmetros da função plot_tree
+    st.write(feature_names=X.columns)
+    st.write(class_names=["No", "Yes"])
+    st.write(filled=True)
+    st.write(rounded=True)
+
 
     # Fazendo a previsão para o usuário
     user_pred = clf.predict(user_data.drop("Outcome", axis=1))
