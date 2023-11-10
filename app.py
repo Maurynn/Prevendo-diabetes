@@ -92,7 +92,7 @@ def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
     max_width = 500
     if img.width > max_width:
         scaling_factor = max_width / float(img.width)
-        img = img.resize((max_width, int(float(img.height) * scaling_factor)), Image.ANTIALIAS)
+        img = img.resize((max_width, int(float(img.height) * scaling_factor)), PIL.Image.Resampling.LANCZOS)
 
     # Salvando a imagem no PDF
     img_path = f"Diabetes_Tree_{paciente_nome}.png"
