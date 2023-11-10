@@ -57,12 +57,8 @@ Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index
 st.sidebar.header("Insira as informações do paciente:")
 paciente_nome = st.sidebar.text_input("Nome do Paciente")
 # Criando um seletor para o sexo
-sex = st.sidebar.selectbox("Sexo", ("Masculino", "Feminino"))
-# Convertendo o sexo em binário
-if sex == "Masculino":
-    sex = 1
-else:
-    sex = 0
+sex = st.sidebar.selectbox("Sexo", ("Feminino", "Masculino"))
+
 # Criando um slider para a idade
 age = st.sidebar.slider("Idade", 0, 100, 25)
 # Criando um slider para o número de gestações
