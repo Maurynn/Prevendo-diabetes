@@ -9,6 +9,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix, classification_rep
 import matplotlib.pyplot as plt
 import seaborn as sns
 from reportlab.pdfgen import canvas
+from PIL import Image
 from io import BytesIO
 
 
@@ -80,13 +81,27 @@ def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
     c.drawString(100, 730, f"Nome do Paciente: {paciente_nome}")
     c.drawString(100, 710, f"Resultado da Previsão: {'Diabetes' if prediction == 1 else 'Sem Diabetes'}")
     c.drawString(100, 690, "Árvore de Decisão:")
+    
+    # Convertendo o gráfico para uma imagem PIL
     img_data = BytesIO()
     decision_tree_fig.savefig(img_data, format='png')
     img_data.seek(0)
-    c.drawImage(ImageReader(img_data), 100, 450)  # Posição e tamanho do gráfico na página
+    img = Image.open(img_data)
+    
+    # Ajustando o tamanho da imagem
+    max_width = 500
+    if img.width > max_width:
+        scaling_factor = max_width / float(img.width)
+        img = img.resize((max_width, int(float(img.height) * scaling_factor)), Image.ANTIALIAS)
+
+    # Salvando a imagem no PDF
+    img_path = f"Diabetes_Tree_{paciente_nome}.png"
+    img.save(img_path)
+    c.drawImage(img_path, 100, 400)  # Posição e tamanho do gráfico na página
+    
     c.showPage()
     c.save()
-    st.success(f"Relatório em PDF gerado com sucesso para {patient_name}")
+    st.success(f"Relatório em PDF gerado com sucesso para {paciente_nome}")
     st.download_button(
         label="Baixar Relatório em PDF",
         key=f"Diabetes_Report_{paciente_nome}.pdf",
