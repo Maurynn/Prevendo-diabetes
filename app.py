@@ -112,7 +112,7 @@ def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
     c.drawString(100, 250, f"Nome do Paciente: {paciente_nome}")
     c.drawString(100, 230, f"Resultado da Previsão: {'Diabetes' if prediction == 1 else 'Sem Diabetes'}")
     c.drawString(100, 210, f"Idade: {age}")
-    c.drawString(100, 190, "f"Sexo: {sex}")
+    c.drawString(100, 190, f"Sexo: {sex}")
 
     c.showPage()
     c.save()
