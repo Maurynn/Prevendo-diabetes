@@ -75,9 +75,9 @@ ped = st.sidebar.slider("Hereditariedade", 0.0, 1.0, 0.5)
 # Criando um botão para fazer a previsão
 button = st.sidebar.button("Fazer a previsão")
 def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
-    c = canvas.Canvas(f"Diabetes_Report_{patient_name}.pdf")
+    c = canvas.Canvas(f"Diabetes_Report_{paciente_nome}.pdf")
     c.drawString(100, 750, "Relatório de Previsão de Diabetes")
-    c.drawString(100, 730, f"Nome do Paciente: {patient_name}")
+    c.drawString(100, 730, f"Nome do Paciente: {paciente_nome}")
     c.drawString(100, 710, f"Resultado da Previsão: {'Diabetes' if prediction == 1 else 'Sem Diabetes'}")
     c.drawString(100, 690, "Árvore de Decisão:")
     img_data = BytesIO()
