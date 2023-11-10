@@ -95,12 +95,13 @@ def generate_pdf_report(patient_name, prediction, decision_tree_fig):
     # Abrindo a imagem novamente
     img = Image.open(img_path)
     
-    # Ajustando o tamanho da imagem
+    # Ajustando o tamanho da imagem com o método LANCZOS
     max_width = 500
     if img.width > max_width:
         scaling_factor = max_width / float(img.width)
-        img = img.resize((max_width, int(float(img.height) * scaling_factor)), Image.LANCZOS)
-
+        new_height = int(float(img.height) * scaling_factor)
+        img = img.resize((max_width, new_height), Image.LANCZOS)
+    
     # Salvando a imagem redimensionada no PDF
     img.save(img_path)
     c.drawImage(img_path, 100, 400)  # Posição e tamanho do gráfico na página
