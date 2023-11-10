@@ -18,6 +18,45 @@ st.title("Prevendo Diabetes")
 
 # Criando um botão de upload
 uploaded_file = st.file_uploader("Faça upload do arquivo csv com os dados da Kaggle", type="csv")
+def generate_pdf_report(patient_name, prediction, decision_tree_fig):
+    c = canvas.Canvas(f"Diabetes_Report_{patient_name}.pdf")
+    c.drawString(100, 750, "Relatório de Previsão de Diabetes")
+    c.drawString(100, 730, f"Nome do Paciente: {patient_name}")
+    c.drawString(100, 710, f"Resultado da Previsão: {'Diabetes' if prediction == 1 else 'Sem Diabetes'}")
+    c.drawString(100, 690, "Árvore de Decisão:")
+    
+    # Convertendo o gráfico para uma imagem PIL
+    img_data = BytesIO()
+    decision_tree_fig.savefig(img_data, format='png')
+    img_data.seek(0)
+    img = Image.open(img_data)
+    
+    # Salvando a imagem em um arquivo temporário
+    img_path = f"Diabetes_Tree_{patient_name}.png"
+    img.save(img_path)
+    
+    # Abrindo a imagem novamente
+    img = Image.open(img_path)
+    
+    # Ajustando o tamanho da imagem com o método LANCZOS
+    max_width = 500
+    if img.width > max_width:
+        scaling_factor = max_width / float(img.width)
+        new_height = int(float(img.height) * scaling_factor)
+        img = img.resize((max_width, new_height), Image.LANCZOS)
+    
+    # Salvando a imagem redimensionada no PDF
+    img.save(img_path)
+    c.drawImage(img_path, 100, 400)  # Posição e tamanho do gráfico na página
+    
+    c.showPage()
+    c.save()
+    st.success(f"Relatório em PDF gerado com sucesso para {patient_name}")
+    st.download_button(
+        label="Baixar Relatório em PDF",
+        key=f"Diabetes_Report_{patient_name}.pdf",
+        data=f"Diabetes_Report_{patient_name}.pdf",
+    )
 
 # Verificando se o arquivo foi carregado
 if uploaded_file is not None:
@@ -75,45 +114,6 @@ bmi = st.sidebar.slider("Índice de massa corporal", 0, 50, 25)
 ped = st.sidebar.slider("Hereditariedade", 0.0, 1.0, 0.5)
 # Criando um botão para fazer a previsão
 button = st.sidebar.button("Fazer a previsão")
-def generate_pdf_report(patient_name, prediction, decision_tree_fig):
-    c = canvas.Canvas(f"Diabetes_Report_{patient_name}.pdf")
-    c.drawString(100, 750, "Relatório de Previsão de Diabetes")
-    c.drawString(100, 730, f"Nome do Paciente: {patient_name}")
-    c.drawString(100, 710, f"Resultado da Previsão: {'Diabetes' if prediction == 1 else 'Sem Diabetes'}")
-    c.drawString(100, 690, "Árvore de Decisão:")
-    
-    # Convertendo o gráfico para uma imagem PIL
-    img_data = BytesIO()
-    decision_tree_fig.savefig(img_data, format='png')
-    img_data.seek(0)
-    img = Image.open(img_data)
-    
-    # Salvando a imagem em um arquivo temporário
-    img_path = f"Diabetes_Tree_{patient_name}.png"
-    img.save(img_path)
-    
-    # Abrindo a imagem novamente
-    img = Image.open(img_path)
-    
-    # Ajustando o tamanho da imagem com o método LANCZOS
-    max_width = 500
-    if img.width > max_width:
-        scaling_factor = max_width / float(img.width)
-        new_height = int(float(img.height) * scaling_factor)
-        img = img.resize((max_width, new_height), Image.LANCZOS)
-    
-    # Salvando a imagem redimensionada no PDF
-    img.save(img_path)
-    c.drawImage(img_path, 100, 400)  # Posição e tamanho do gráfico na página
-    
-    c.showPage()
-    c.save()
-    st.success(f"Relatório em PDF gerado com sucesso para {patient_name}")
-    st.download_button(
-        label="Baixar Relatório em PDF",
-        key=f"Diabetes_Report_{patient_name}.pdf",
-        data=f"Diabetes_Report_{patient_name}.pdf",
-    )
 
 # Criando um dataframe com as informações do usuário
 user_data = pd.DataFrame({
