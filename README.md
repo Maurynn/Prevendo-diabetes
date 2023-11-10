@@ -1,5 +1,3 @@
-Eu tentei escrever um readme para o seu aplicativo, usando o formato Markdown. Aqui está o que eu fiz:
-
 # Prevendo Diabetes
 
 ## Descrição
