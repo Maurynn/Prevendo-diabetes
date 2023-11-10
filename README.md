@@ -2,7 +2,7 @@
 
 ## Descrição
 
-Este é um aplicativo web que usa Machine Learning para prever se uma pessoa tem diabetes ou não, com base em algumas informações pessoais e clínicas. O aplicativo usa um classificador de árvore de decisão treinado com os dados da [Kaggle](^1^), que contém informações de pacientes do Pima Indian Diabetes Database. O aplicativo permite que o usuário faça upload do arquivo csv com os dados da Kaggle, insira as suas informações no sidebar, e veja a previsão do modelo, a acurácia do modelo, e a árvore de decisão usada pelo modelo.
+Este é um aplicativo web que usa Machine Learning para prever se uma pessoa tem diabetes ou não, com base em algumas informações pessoais e clínicas. O aplicativo usa um classificador de árvore de decisão treinado com os dados da [Kaggle](https://www.kaggle.com/), que contém informações de pacientes do Pima Indian Diabetes Database. O aplicativo permite que o usuário faça upload do arquivo csv com os dados da Kaggle, insira as suas informações no sidebar, e veja a previsão do modelo, a acurácia do modelo, e a árvore de decisão usada pelo modelo.
 
 ## Instalação
 
