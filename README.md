@@ -21,7 +21,7 @@ Você pode instalar essas bibliotecas usando o comando `pip install -r requerime
 
 Para usar este aplicativo, você precisa seguir os seguintes passos:
 
-- Faça o download do arquivo csv com os dados da Kaggle [neste link](^2^).
+- Faça o download do arquivo csv com os dados da Kaggle [neste link](https://www.kaggle.com/uciml/pima-indians-diabetes-database/download).
 - Abra o terminal e navegue até a pasta onde está o arquivo do aplicativo (app.py).
 - Execute o comando `streamlit run app.py` para iniciar o aplicativo.
 - Abra o navegador e acesse o endereço http://localhost:8501
