@@ -96,17 +96,17 @@ user_data = pd.DataFrame({
 })
 def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
     c = canvas.Canvas(f"Diabetes_Report_{paciente_nome}.pdf")
-    c.drawString(100, 750, "Relatório de Previsão de Diabetes")
-    c.drawString(100, 730, f"Nome do Paciente: {paciente_nome}")
-    c.drawString(100, 710, f"Resultado da Previsão: {'Diabetes' if prediction == 1 else 'Sem Diabetes'}")
-    c.drawString(100, 690, "Árvore de Decisão:")
+    c.drawString(100, 300, "Relatório de Previsão de Diabetes")
+    c.drawString(100, 250, f"Nome do Paciente: {paciente_nome}")
+    c.drawString(100, 230, f"Resultado da Previsão: {'Diabetes' if prediction == 1 else 'Sem Diabetes'}")
+    c.drawString(100, 210, "Árvore de Decisão:")
     
     img_data = BytesIO()
     decision_tree_fig.savefig(img_data, format='png')
     img_data.seek(0)
     img = ImageReader(img_data)
     
-    c.drawImage(img, 100, 400)  # Posição e tamanho do gráfico na página
+    c.drawImage(img, 100, 300)  # Posição e tamanho do gráfico na página
     
     c.showPage()
     c.save()
