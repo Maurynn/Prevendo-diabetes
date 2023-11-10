@@ -11,6 +11,7 @@ import seaborn as sns
 from reportlab.pdfgen import canvas
 from PIL import Image
 from io import BytesIO
+import base64
 
 
 # Definindo o título do app
