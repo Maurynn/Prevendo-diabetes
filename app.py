@@ -94,20 +94,25 @@ user_data = pd.DataFrame({
     "Age": [age],
     "Outcome": [0]
 })
-def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
-    c = canvas.Canvas(f"Diabetes_Report_{paciente_nome}.pdf")
-    c.drawString(100, 300, "Relatório de Previsão de Diabetes")
-    c.drawString(100, 250, f"Nome do Paciente: {paciente_nome}")
+def generate_pdf_report(patient_name, prediction, decision_tree_fig):
+    c = canvas.Canvas(f"Diabetes_Report_{patient_name}.pdf", pagesize=letter)
+
+    img_path = f"Diabetes_Tree_{patient_name}.png"
+    decision_tree_fig.savefig(img_path, format='png')
+
+    img = Image.open(img_path)
+    max_width = 500
+    scaling_factor = max_width / float(img.width)
+    img = img.resize((max_width, int(float(img.height) * scaling_factor)), Image.ANTIALIAS)
+
+    img.save(img_path)
+    
+    c.drawImage(img_path, 100, 300)  # Posição e tamanho do gráfico na página
+    
+    c.drawString(100, 250, f"Nome do Paciente: {patient_name}")
     c.drawString(100, 230, f"Resultado da Previsão: {'Diabetes' if prediction == 1 else 'Sem Diabetes'}")
-    c.drawString(100, 210, "Árvore de Decisão:")
-    
-    img_data = BytesIO()
-    decision_tree_fig.savefig(img_data, format='png')
-    img_data.seek(0)
-    img = ImageReader(img_data)
-    
-    c.drawImage(img, 100, 300)  # Posição e tamanho do gráfico na página
-    
+    c.drawString(100, 210, "Outras informações do paciente...")
+
     c.showPage()
     c.save()
 
