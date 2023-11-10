@@ -22,10 +22,10 @@ st.title("Prevendo Diabetes")
 # Criando um botão de upload
 uploaded_file = st.file_uploader("Faça upload do arquivo csv com os dados da Kaggle", type="csv")
 
-def generate_pdf_report(patient_name, prediction, decision_tree_fig):
-    c = canvas.Canvas(f"Diabetes_Report_{patient_name}.pdf")
+def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
+    c = canvas.Canvas(f"Diabetes_Report_{paciente_nome}.pdf")
     c.drawString(100, 750, "Relatório de Previsão de Diabetes")
-    c.drawString(100, 730, f"Nome do Paciente: {patient_name}")
+    c.drawString(100, 730, f"Nome do Paciente: {paciente_nome}")
     c.drawString(100, 710, f"Resultado da Previsão: {'Diabetes' if prediction == 1 else 'Sem Diabetes'}")
     c.drawString(100, 690, "Árvore de Decisão:")
     
@@ -39,12 +39,12 @@ def generate_pdf_report(patient_name, prediction, decision_tree_fig):
     c.showPage()
     c.save()
 
-    with open(f"Diabetes_Report_{patient_name}.pdf", "rb") as pdf_file:
+    with open(f"Diabetes_Report_{paciente_nome}.pdf", "rb") as pdf_file:
         b64_pdf = base64.b64encode(pdf_file.read()).decode()
 
-    href = f'<a href="data:application/pdf;base64,{b64_pdf}" download="Diabetes_Report_{patient_name}.pdf">Baixar Relatório em PDF</a>'
+    href = f'<a href="data:application/pdf;base64,{b64_pdf}" download="Diabetes_Report_{paciente_nome}.pdf">Baixar Relatório em PDF</a>'
     st.markdown(href, unsafe_allow_html=True)
-    st.success(f"Relatório em PDF gerado com sucesso para {patient_name}")
+    st.success(f"Relatório em PDF gerado com sucesso para {paciente_nome}")
 # Verificando se o arquivo foi carregado
 if uploaded_file is not None:
     # Lendo o arquivo csv
@@ -52,7 +52,7 @@ if uploaded_file is not None:
     # Mostrando as primeiras linhas do dataframe
     st.write(df.head())
     
-    generate_pdf_report(patient_name, user_pred[0], fig)
+    generate_pdf_report(paciente_nome, user_pred[0], fig)
 
 
 else:
