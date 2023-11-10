@@ -96,15 +96,7 @@ def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
     img_path = f"Diabetes_Tree_{paciente_nome}.png"
     decision_tree_fig.savefig(img_path, format='png')
 
-    img = Image.open(img_path)
-    max_width = 500
-    scaling_factor = max_width / float(img.width)
-    img = img.resize((max_width, int(float(img.height) * scaling_factor)), Image.LANCZOS)
-
-    img.save(img_path)
-    
-    c.drawImage(img_path, 100, 300)  # Posição e tamanho do gráfico na página
-    
+    c.drawImage(img_path, 100, 350, width=400, height=250)
     c.drawString(100, 250, f"Nome do Paciente: {paciente_nome}")
     c.drawString(100, 230, f"Resultado da Previsão: {'Diabetes' if prediction == 1 else 'Sem Diabetes'}")
     c.drawString(100, 210, f"Idade: {age}")
