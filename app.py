@@ -94,10 +94,10 @@ user_data = pd.DataFrame({
     "Age": [age],
     "Outcome": [0]
 })
-def generate_pdf_report(patient_name, prediction, decision_tree_fig):
-    c = canvas.Canvas(f"Diabetes_Report_{patient_name}.pdf", pagesize=letter)
+def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
+    c = canvas.Canvas(f"Diabetes_Report_{paciente_nome}.pdf", pagesize=letter)
 
-    img_path = f"Diabetes_Tree_{patient_name}.png"
+    img_path = f"Diabetes_Tree_{paciente_nome}.png"
     decision_tree_fig.savefig(img_path, format='png')
 
     img = Image.open(img_path)
@@ -109,7 +109,7 @@ def generate_pdf_report(patient_name, prediction, decision_tree_fig):
     
     c.drawImage(img_path, 100, 300)  # Posição e tamanho do gráfico na página
     
-    c.drawString(100, 250, f"Nome do Paciente: {patient_name}")
+    c.drawString(100, 250, f"Nome do Paciente: {paciente_nome}")
     c.drawString(100, 230, f"Resultado da Previsão: {'Diabetes' if prediction == 1 else 'Sem Diabetes'}")
     c.drawString(100, 210, "Outras informações do paciente...")
 
