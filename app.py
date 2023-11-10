@@ -8,6 +8,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 import matplotlib.pyplot as plt
 import seaborn as sns
+from reportlab.pdfgen import canvas
+from io import BytesIO
 
 
 # Definindo o título do app
@@ -72,6 +74,24 @@ bmi = st.sidebar.slider("Índice de massa corporal", 0, 50, 25)
 ped = st.sidebar.slider("Hereditariedade", 0.0, 1.0, 0.5)
 # Criando um botão para fazer a previsão
 button = st.sidebar.button("Fazer a previsão")
+def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
+    c = canvas.Canvas(f"Diabetes_Report_{patient_name}.pdf")
+    c.drawString(100, 750, "Relatório de Previsão de Diabetes")
+    c.drawString(100, 730, f"Nome do Paciente: {patient_name}")
+    c.drawString(100, 710, f"Resultado da Previsão: {'Diabetes' if prediction == 1 else 'Sem Diabetes'}")
+    c.drawString(100, 690, "Árvore de Decisão:")
+    img_data = BytesIO()
+    decision_tree_fig.savefig(img_data, format='png')
+    img_data.seek(0)
+    c.drawImage(ImageReader(img_data), 100, 450)  # Posição e tamanho do gráfico na página
+    c.showPage()
+    c.save()
+    st.success(f"Relatório em PDF gerado com sucesso para {patient_name}")
+    st.download_button(
+        label="Baixar Relatório em PDF",
+        key=f"Diabetes_Report_{paciente_nome}.pdf",
+        data=f"Diabetes_Report_{paciente_nome}.pdf",
+    )
 
 # Criando um dataframe com as informações do usuário
 user_data = pd.DataFrame({
@@ -117,6 +137,8 @@ if button:
         st.success("Parabéns! Você não tem diabetes.")
     else:
         st.error("Atenção! Você tem diabetes.")
+    if paciente_nome:
+        generate_pdf_report(paciente_nome, user_pred[0], fig)
 
 # Inserindo um aviso informando que é um modelo de teste
 st.warning("Atenção: este aplicativo é um modelo de teste e não substitui um diagnóstico médico profissional. Consulte um médico se você tiver sintomas ou suspeita de diabetes.")
