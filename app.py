@@ -8,7 +8,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 import matplotlib.pyplot as plt
 import seaborn as sns
+from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
+from reportlab.lib.utils import ImageReader
 from PIL import Image
 from io import BytesIO
 import base64
