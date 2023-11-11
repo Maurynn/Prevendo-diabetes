@@ -22,15 +22,12 @@ st.title("Prevendo Diabetes")
 # Criando um botão de upload
 uploaded_file = st.file_uploader("Faça upload do arquivo csv com os dados da Kaggle", type="csv")
 
-df = pd.DataFrame()
 # Verificando se o arquivo foi carregado
 if uploaded_file is not None:
     # Lendo o arquivo csv
     df = pd.read_csv(uploaded_file)
     # Mostrando as primeiras linhas do dataframe
     st.write(df.head())
-
-
 else:
     # Mostrando uma mensagem de erro se o arquivo não foi carregado
     st.info("""Ainda não possui o arquivo?
@@ -130,40 +127,37 @@ def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
     
 # Verificando se o botão foi clicado
 if button:
-    if "df" not in locals():
-        st.warning("Por favor, carregue o arquivo primeiro.")
+    # Separando as variáveis independentes e dependentes
+    X = df.drop("Outcome", axis=1)
+    y = df["Outcome"]
+
+    # Dividindo os dados em treino e teste
+    X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8, random_state=42)
+
+    # Treinando um classificador de árvore de decisão
+    clf = DecisionTreeClassifier(criterion="entropy", max_depth=3, random_state=42)
+    clf.fit(X_train, y_train)
+
+    # Fazendo previsões para os dados de teste
+    y_pred = clf.predict(X_test)
+
+    # Calculando a acurácia das previsões
+    acc = accuracy_score(y_test, y_pred)
+    st.write(f"A acurácia do modelo é {acc:.2f}")
+
+    # Exibindo a árvore de decisão
+    fig, ax = plt.subplots(figsize=(12, 8))
+    plot_tree(clf, feature_names=X.columns.tolist(), class_names=["No", "Yes"], filled=True, rounded=True, ax=ax)
+    st.pyplot(fig)
+
+    # Fazendo a previsão para o usuário
+    user_pred = clf.predict(user_data.drop("Outcome", axis=1))
+    if user_pred[0] == 0:
+        st.success("Parabéns! Você não tem diabetes.")
     else:
-        # Separando as variáveis independentes e dependentes
-        X = df.drop("Outcome", axis=1)
-        y = df["Outcome"]
-
-        # Dividindo os dados em treino e teste
-        X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8, random_state=42)
-
-        # Treinando um classificador de árvore de decisão
-        clf = DecisionTreeClassifier(criterion="entropy", max_depth=3, random_state=42)
-        clf.fit(X_train, y_train)
-
-        # Fazendo previsões para os dados de teste
-        y_pred = clf.predict(X_test)
-
-        # Calculando a acurácia das previsões
-        acc = accuracy_score(y_test, y_pred)
-        st.write(f"A acurácia do modelo é {acc:.2f}")
-
-        # Exibindo a árvore de decisão
-        fig, ax = plt.subplots(figsize=(12, 8))
-        plot_tree(clf, feature_names=X.columns.tolist(), class_names=["No", "Yes"], filled=True, rounded=True, ax=ax)
-        st.pyplot(fig)
-
-        # Fazendo a previsão para o usuário
-        user_pred = clf.predict(user_data.drop("Outcome", axis=1))
-        if user_pred[0] == 0:
-            st.success("Parabéns! Você não tem diabetes.")
-        else:
-            st.error("Atenção! Você tem diabetes.")
-        if paciente_nome:
-            generate_pdf_report(paciente_nome, user_pred[0], fig)
+        st.error("Atenção! Você tem diabetes.")
+    if paciente_nome:
+        generate_pdf_report(paciente_nome, user_pred[0], fig)
 
 # Inserindo um aviso informando que é um modelo de teste
 st.warning("Atenção: este aplicativo é um modelo de teste e não substitui um diagnóstico médico profissional. Consulte um médico se você tiver sintomas ou suspeita de diabetes.")
