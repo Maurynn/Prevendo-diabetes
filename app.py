@@ -53,6 +53,13 @@ O tratamento da diabetes visa manter a glicose no sangue dentro dos valores norm
 A prevenção da diabetes é possível, principalmente no caso do diabetes tipo 2. A prevenção envolve a adoção de hábitos de vida saudáveis, como evitar o tabagismo, o consumo excessivo de álcool, o estresse, o sedentarismo e a obesidade. A alimentação saudável é um dos pilares da prevenção, pois ajuda a controlar o peso corporal, a glicose no sangue, o colesterol e a pressão arterial. A alimentação saudável deve ser equilibrada, variada, colorida e adequada às necessidades de cada pessoa. Alguns dos alimentos que devem ser consumidos com moderação são: açúcar, doces, refrigerantes, sucos industrializados, farinha branca, pão branco, arroz branco, massas, batata, mandioca, frituras, gorduras saturadas, gorduras trans, sal e alimentos processados. Alguns dos alimentos que devem ser consumidos com frequência são: frutas, verduras, legumes, cereais integrais, leguminosas, oleaginosas, sementes, leite e derivados desnatados, carnes magras, peixes, ovos, azeite de oliva, alho, cebola, ervas e especiarias.
 
 Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index.php?area=02), [Ministério da Saúde](https://www.kaggle.com/datasets/datahackers/state-of-data-2021), [Portal Data Science](https://portaldatascience.com/kaggle/)""")
+
+# Carregando a imagem da logo
+logo = Image.open("caminho/para/sua/logo.png")
+
+# Exibindo a logo na sidebar
+st.sidebar.image(logo, use_column_width=True)
+
 # Criando um sidebar para inserir as informações do usuário
 st.sidebar.header("Insira as informações do paciente:")
 paciente_nome = st.sidebar.text_input("Nome do Paciente")
