@@ -111,7 +111,7 @@ def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
     c.setFont("Helvetica", 16)
     c.drawString(100, 600, "Relatório de Previsão de Diabetes")
 
-    c.drawImage(img_path, 100, 350, width=500, height=350)
+    c.drawImage(img_path, 100, 300, width=500, height=350)
     c.setFont("Helvetica", 12)
     c.drawString(100, 250, f"Nome do Paciente: {paciente_nome}")
     c.drawString(100, 230, f"Resultado da Previsão: {'Diabetes' if prediction == 1 else 'Sem Diabetes'}")
