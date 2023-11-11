@@ -55,7 +55,7 @@ A prevenção da diabetes é possível, principalmente no caso do diabetes tipo 
 Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index.php?area=02), [Ministério da Saúde](https://www.kaggle.com/datasets/datahackers/state-of-data-2021), [Portal Data Science](https://portaldatascience.com/kaggle/)""")
 
 # Carregando a imagem da logo
-logo = Image.open("caminho/para/sua/logo.png")
+logo = Image.open("imagens/IMG_20231110_220951.png")
 
 # Exibindo a logo na sidebar
 st.sidebar.image(logo, use_column_width=True)
