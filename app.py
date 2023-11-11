@@ -38,6 +38,11 @@ else:
     O arquivo vem compactado, lembre-se de extrair em alguma pasta de sua preferência.""")
 
 # Criando um expander para mostrar mais informações sobre a diabetes
+expander_funcionalidades = st.expander("ℹ️ Funcionalidades do App")
+expander_funcionalidades.write("Este aplicativo oferece a capacidade de prever a ocorrência de diabetes com base em dados fornecidos.")
+expander_funcionalidades.write("Você pode carregar um arquivo CSV contendo informações médicas, inserir dados de um paciente e fazer previsões sobre a presença de diabetes.")
+expander_funcionalidades.write("Após inserir as informações do paciente, clique no botão 'Fazer a previsão' para obter o diagnóstico.")
+
 expander = st.expander("Saiba mais sobre a diabetes")
 expander.write("""
 A diabetes é uma doença crônica que afeta a forma como o corpo metaboliza a glicose, a principal fonte de energia do organismo. A glicose é obtida a partir dos alimentos que ingerimos e é transportada pelo sangue até as células, onde é utilizada como combustível. Para que isso aconteça, é necessário que o pâncreas produza um hormônio chamado insulina, que facilita a entrada da glicose nas células. Quando o pâncreas não produz insulina suficiente ou quando o organismo não consegue usar adequadamente a insulina que produz, ocorre um aumento da glicose no sangue, chamado de hiperglicemia. A hiperglicemia crônica pode causar danos em diversos órgãos, como olhos, rins, nervos, coração e vasos sanguíneos.
