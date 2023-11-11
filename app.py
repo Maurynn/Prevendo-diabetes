@@ -22,7 +22,7 @@ st.title("Prevendo Diabetes")
 # Criando um botão de upload
 uploaded_file = st.file_uploader("Faça upload do arquivo csv com os dados da Kaggle", type="csv")
 
-
+df = pd.DataFrame()
 # Verificando se o arquivo foi carregado
 if uploaded_file is not None:
     # Lendo o arquivo csv
