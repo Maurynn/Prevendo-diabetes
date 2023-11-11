@@ -109,7 +109,7 @@ def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
     decision_tree_fig.savefig(img_path, format='png')
     
     c.setFont("Helvetica", 16)
-    c.drawString(100, 750, "Relatório de Previsão de Diabetes")
+    c.drawString(100, 700, "Relatório de Previsão de Diabetes")
 
     c.drawImage(img_path, 50, 260, width=500, height=350)
     c.setFont("Helvetica", 12)
