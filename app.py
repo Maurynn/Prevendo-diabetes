@@ -127,9 +127,7 @@ def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
     
 # Verificando se o botão foi clicado
 if button:
-    if uploaded_file is None:
-        st.warning("Por favor, carregue o arquivo CSV antes de fazer uma previsão.")
-    else:
+    if uploaded_file is not None:
         # Separando as variáveis independentes e dependentes
         X = df.drop("Outcome", axis=1)
         y = df["Outcome"]
@@ -152,6 +150,8 @@ if button:
         fig, ax = plt.subplots(figsize=(12, 8))
         plot_tree(clf, feature_names=X.columns.tolist(), class_names=["No", "Yes"], filled=True, rounded=True, ax=ax)
         st.pyplot(fig)
+    else:
+        st.warning("Por favor, carregue o arquivo CSV antes de fazer uma previsão.")
 
         # Fazendo a previsão para o usuário
         user_pred = clf.predict(user_data.drop("Outcome", axis=1))
