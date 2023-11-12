@@ -151,8 +151,6 @@ if button:
         fig, ax = plt.subplots(figsize=(12, 8))
         plot_tree(clf, feature_names=X.columns.tolist(), class_names=["No", "Yes"], filled=True, rounded=True, ax=ax)
         st.pyplot(fig)
-    else:
-        st.warning("Por favor, carregue o arquivo CSV antes de fazer uma previsão.")
 
         # Fazendo a previsão para o usuário
         user_pred = clf.predict(user_data.drop("Outcome", axis=1))
@@ -162,6 +160,8 @@ if button:
             st.error("Atenção! Você tem diabetes.")
         if paciente_nome:
             generate_pdf_report(paciente_nome, user_pred[0], fig)
+    else:
+        st.warning("Por favor, carregue o arquivo CSV antes de fazer uma previsão.")
 
 # Inserindo um aviso informando que é um modelo de teste
 st.warning("Atenção: este aplicativo é um modelo de teste e não substitui um diagnóstico médico profissional. Consulte um médico se você tiver sintomas ou suspeita de diabetes.")
