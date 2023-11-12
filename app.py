@@ -125,7 +125,7 @@ def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
     st.markdown(href, unsafe_allow_html=True)
     st.success(f"Relatório em PDF gerado com sucesso para {paciente_nome}")
 
-clf = DecisionTreeClassifier(criterion="entropy", max_depth=3, random_state=42)   
+#clf = DecisionTreeClassifier(criterion="entropy", max_depth=3, random_state=42)   
 # Verificando se o botão foi clicado
 if button:
     if uploaded_file is not None:
