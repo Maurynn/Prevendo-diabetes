@@ -124,7 +124,8 @@ def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
     href = f'<a href="data:application/pdf;base64,{b64_pdf}" download="Diabetes_Report_{paciente_nome}.pdf">Baixar Relatório em PDF</a>'
     st.markdown(href, unsafe_allow_html=True)
     st.success(f"Relatório em PDF gerado com sucesso para {paciente_nome}")
-    
+
+clf = DecisionTreeClassifier(criterion="entropy", max_depth=3, random_state=42)   
 # Verificando se o botão foi clicado
 if button:
     if uploaded_file is not None:
