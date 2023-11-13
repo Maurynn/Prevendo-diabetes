@@ -5,7 +5,7 @@ import numpy as np
 from sklearn.tree import plot_tree
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report, precision_score, recall_score, f1_score
 import matplotlib.pyplot as plt
 import seaborn as sns
 from reportlab.lib.pagesizes import letter
@@ -140,6 +140,28 @@ if button:
 
         # Fazendo previsões para os dados de teste
         y_pred = clf.predict(X_test)
+
+        # Calculando outras métricas de avaliação
+        # Calculando precisão, recall e f1-score
+        precision = precision_score(y_test, y_pred)
+        recall = recall_score(y_test, y_pred)
+        f1 = f1_score(y_test, y_pred)
+
+        # Calculando matriz de confusão e relatório de classificação
+        conf_matrix = confusion_matrix(y_test, y_pred)
+        class_report = classification_report(y_test, y_pred)
+
+        # Mostrando as métricas na interface do Streamlit
+        st.write(f"Precisão: {precision:.2f}")
+        st.write(f"Recall: {recall:.2f}")
+        st.write(f"F1-Score: {f1:.2f}")
+        st.write("Matriz de Confusão:")
+        st.write(conf_matrix)
+        st.write("Relatório de Classificação:")
+        st.write(class_report)
+
+
+
 
         # Calculando a acurácia das previsões
         acc = accuracy_score(y_test, y_pred)
