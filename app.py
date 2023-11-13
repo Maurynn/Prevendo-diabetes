@@ -153,9 +153,9 @@ if button:
         # Fazendo a previsão para o usuário
         user_pred = clf.predict(user_data.drop("Outcome", axis=1))
         if user_pred[0] == 0:
-            st.markdown("<h2 style='color: green;'>Parabéns! Paciente sem diabetes.</h2>", unsafe_allow_html=True)
+            st.markdown("<h3 style='color: green;'>Parabéns! Paciente sem diabetes.</h3>", unsafe_allow_html=True)
         else:
-            st.markdown("<h2 style='color: red;'>⚠️Atenção! Paciente com suspeita de diabetes.</h2>", unsafe_allow_html=True)
+            st.markdown("<h3 style='color: red;'>⚠️Atenção! Paciente com suspeita de diabetes.</h3>", unsafe_allow_html=True)
         #if user_pred[0] == 0:
             #st.success("Parabéns! Você não tem diabetes.")
         #else:
