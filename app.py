@@ -84,7 +84,7 @@ bmi = st.sidebar.slider("Índice de massa corporal", 0, 50, 25)
 ped = st.sidebar.slider("Hereditariedade", 0.0, 1.0, 0.5)
 # Criando um botão para fazer a previsão
 button = st.sidebar.button("Fazer a previsão")
-
+st.divider()
 # Criando um dataframe com as informações do usuário
 user_data = pd.DataFrame({
     "Pregnancies": [preg],
