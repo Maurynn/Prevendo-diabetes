@@ -41,7 +41,7 @@ Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index
 
 with tab3:
    st.header("Métricas adicionais")
-   st.image("Teste")
+   st.write("Teste")
 # Definindo o título do app
 st.title("Prevendo Diabetes")
 st.divider()
