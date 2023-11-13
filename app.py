@@ -18,7 +18,7 @@ import base64
 
 # Definindo o título do app
 st.title("Prevendo Diabetes")
-
+st.divider()
 # Criando um botão de upload
 uploaded_file = st.file_uploader("Faça upload do arquivo csv com os dados da Kaggle", type="csv")
 
