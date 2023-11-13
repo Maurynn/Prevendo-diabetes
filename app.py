@@ -166,9 +166,9 @@ if button:
 # Inserindo um aviso informando que é um modelo de teste
 st.warning("Atenção: este aplicativo é um modelo de teste e não substitui um diagnóstico médico profissional. Consulte um médico se você tiver sintomas ou suspeita de diabetes.")
 st.divider()
-    st.markdown("Developed by: Mauro Alves")
+st.markdown("Developed by: Mauro Alves")
     
-    st.markdown("""
+st.markdown("""
         <a href="https://github.com/Maurynn" target="_blank" style="margin-right: 15px; text-decoration: none">
         <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github logo" width="25" height="25">
         </a>
