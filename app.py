@@ -17,7 +17,7 @@ import base64
 
 import streamlit as st
 
-tab1, tab2, tab3 = st.tabs(["Uso do App", "Sobre a Diabetes", "Métricas adicionais"])
+tab1, tab2, tab3 = st.tabs(["Home", "Uso do App", "Sobre a Diabetes", "Métricas adicionais"])
 
 with tab1:
    st.header("Funcionalidades do App.")
