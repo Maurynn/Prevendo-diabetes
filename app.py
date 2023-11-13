@@ -59,9 +59,9 @@ Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index
 
 # Carregando a imagem da logo
 logo = Image.open("imagens/IMG_20231110_220951.png")
+st.divider()
 # Exibindo a logo na sidebar
 st.sidebar.image(logo, use_column_width=True)
-st.divider()
 # Criando um sidebar para inserir as informações do usuário
 st.sidebar.header("Insira as informações do paciente:")
 paciente_nome = st.sidebar.text_input("Nome do Paciente")
