@@ -120,7 +120,7 @@ with tab1:
             key=f"download_button_{paciente_nome}.pdf",
             file_name=f"Diabetes_Report_{paciente_nome}.pdf",
             help="Clique para baixar o relatório em PDF"
-    
+        )
           
     # Verificando se o botão foi clicado
     if button:
