@@ -211,8 +211,10 @@ with tab1:
 with tab2:
    st.header("Funcionalidades do App.")
    st.write(""" Este aplicativo oferece a capacidade de prever a ocorrência de diabetes com base em dados fornecidos.
-   Você pode carregar um arquivo CSV contendo informações médicas, inserir dados de um paciente e fazer previsões sobre a presença de diabetes. 
-   Após inserir as informações do paciente, clique no botão 'Fazer a previsão' para obter o diagnóstico.""")
+   
+Você pode carregar um arquivo CSV contendo informações médicas, inserir dados de um paciente e fazer previsões sobre a presença de diabetes. 
+   
+Após inserir as informações do paciente, clique no botão 'Fazer a previsão' para obter o diagnóstico.""")
 
 with tab3:
    st.header("Sobre a diabetes.")
