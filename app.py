@@ -97,10 +97,14 @@ with tab1:
         c.showPage()
         c.save()
         
+        # Convertendo o relatório em PDF para base64
+        with open(f"Diabetes_Report_{paciente_nome}.pdf", "rb") as pdf_file:
+            b64_pdf = base64.b64encode(pdf_file.read()).decode()
+
         # Adicionando um botão de download para o relatório em PDF
         download_button = st.download_button(
             label="Baixar Relatório em PDF",
-            data=f"data:application/octet-stream;base64,{b64_pdf}",
+            data=f"data:application/pdf;base64,{b64_pdf}",
             key=f"download_button_{paciente_nome}.pdf",
             on_click=None,
             help="Clique para baixar o relatório em PDF"
