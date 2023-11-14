@@ -212,4 +212,20 @@ Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index
 
 with tab4:
    st.header("Métricas adicionais")
-   st.write("Teste")
+   # Calculando precisão, recall e f1-score
+    precision = precision_score(y_test, y_pred)
+    recall = recall_score(y_test, y_pred)
+    f1 = f1_score(y_test, y_pred)
+
+    # Calculando matriz de confusão e relatório de classificação
+    conf_matrix = confusion_matrix(y_test, y_pred)
+    class_report = classification_report(y_test, y_pred)
+
+    # Adicionando os resultados na guia tab4
+    st.write(f"Precisão: {precision:.2f}")
+    st.write(f"Recall: {recall:.2f}")
+    st.write(f"F1-Score: {f1:.2f}")
+    st.write("Matriz de Confusão:")
+    st.write(conf_matrix)
+    st.write("Relatório de Classificação:")
+    st.write(class_report)
