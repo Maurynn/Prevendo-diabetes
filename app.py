@@ -94,13 +94,22 @@ with tab1:
     
         c.showPage()
         c.save()
+        download_button = st.button("Baixar Relatório em PDF")
+        if download_button:
+            with open(f"Diabetes_Report_{paciente_nome}.pdf", "rb") as pdf_file:
+                b64_pdf = base64.b64encode(pdf_file.read()).decode()
+
+            href = f'<a href="data:application/pdf;base64,{b64_pdf}" download="Diabetes_Report_{paciente_nome}.pdf">Baixar Relatório em PDF</a>'
+            st.markdown(href, unsafe_allow_html=True)
+
+            st.success(f"Relatório em PDF gerado com sucesso para {paciente_nome}")
     
-        with open(f"Diabetes_Report_{paciente_nome}.pdf", "rb") as pdf_file:
-            b64_pdf = base64.b64encode(pdf_file.read()).decode()
+        #with open(f"Diabetes_Report_{paciente_nome}.pdf", "rb") as pdf_file:
+            #b64_pdf = base64.b64encode(pdf_file.read()).decode()
     
-        href = f'<a href="data:application/pdf;base64,{b64_pdf}" download="Diabetes_Report_{paciente_nome}.pdf">Baixar Relatório em PDF</a>'
-        st.markdown(href, unsafe_allow_html=True)
-        st.success(f"Relatório em PDF gerado com sucesso para {paciente_nome}")
+        #href = f'<a href="data:application/pdf;base64,{b64_pdf}" download="Diabetes_Report_{paciente_nome}.pdf">Baixar Relatório em PDF</a>'
+        #st.markdown(href, unsafe_allow_html=True)
+        #st.success(f"Relatório em PDF gerado com sucesso para {paciente_nome}")
     
     #clf = DecisionTreeClassifier(criterion="entropy", max_depth=3, random_state=42)   
     # Verificando se o botão foi clicado
