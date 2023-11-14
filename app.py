@@ -211,7 +211,8 @@ A prevenção da diabetes é possível, principalmente no caso do diabetes tipo 
 Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index.php?area=02), [Ministério da Saúde](https://www.kaggle.com/datasets/datahackers/state-of-data-2021), [Portal Data Science](https://portaldatascience.com/kaggle/)""")
 
 with tab4:
-   st.header("Métricas adicionais")
+    st.header("Métricas adicionais")
+    
    # Calculando precisão, recall e f1-score
     precision = precision_score(y_test, y_pred)
     recall = recall_score(y_test, y_pred)
