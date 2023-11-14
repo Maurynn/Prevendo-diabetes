@@ -15,8 +15,6 @@ from PIL import Image
 from io import BytesIO
 import base64
 
-import streamlit as st
-
 tab1, tab2, tab3, tab4 = st.tabs(["Home", "Uso do App", "Sobre a Diabetes", "Métricas adicionais"])
 
 with tab1:
