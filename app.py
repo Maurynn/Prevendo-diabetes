@@ -15,7 +15,7 @@ from PIL import Image
 from io import BytesIO
 import base64
 
-tab1, tab2, tab3, tab4 = st.tabs(["🏠Home", "⚙️Uso do App", "🔎Sobre a Diabetes", "📊Métricas adicionais"])
+tab1, tab2, tab3 = st.tabs(["🏠Home", "⚙️Uso do App", "🔎Sobre a Diabetes"])
 
 with tab1:
     st.title("Prevendo Diabetes")
@@ -130,8 +130,8 @@ with tab1:
             conf_matrix = confusion_matrix(y_test, y_pred)
             class_report = classification_report(y_test, y_pred)
     
-            with tab4:
-                # Mostrando as métricas na interface do Streamlit
+            expander_metrics = st.expander("📊Métricas adicionais após previsão")
+            with expander_metrics:
                 st.write(f"Precisão: {precision:.2f}")
                 st.write(f"Recall: {recall:.2f}")
                 st.write(f"F1-Score: {f1:.2f}")
