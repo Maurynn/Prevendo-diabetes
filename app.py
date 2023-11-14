@@ -101,21 +101,14 @@ with tab1:
         pdf_path = f"Diabetes_Report_{paciente_nome}.pdf"
         decision_tree_fig.savefig(pdf_path, format='pdf')
 
-        # Convertendo o relatório em PDF para base64
-        with open(pdf_path, "rb") as pdf_file:
-            pdf_bytes = pdf_file.read()
-
-        if pdf_bytes:
-            b64_pdf = base64.b64encode(pdf_bytes).decode()
-
         # Adicionando um botão de download para o relatório em PDF
         download_button = st.download_button(
             label="Baixar Relatório em PDF",
-            data=b64_pdf,
+            data=pdf_path,
             key=f"download_button_{paciente_nome}.pdf",
             file_name=f"Diabetes_Report_{paciente_nome}.pdf",
             on_click=None,
-            help="Clique para baixar o relatório em PDF"
+         nn help="Clique para baixar o relatório em PDF"
         )
 
         if download_button:
