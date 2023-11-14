@@ -100,16 +100,6 @@ with tab1:
         pdf_path = f"Diabetes_Report_{paciente_nome}.pdf"
         decision_tree_fig.savefig(pdf_path, format='pdf')
 
-        # Adicionando um botão de download para o relatório em PDF
-        download_button = st.button(
-            label="Baixar Relatório em PDF",
-            on_click=lambda: download_report(paciente_nome, pdf_path),
-            help="Clique para baixar o relatório em PDF"
-        )
-
-        if download_button:
-            st.success(f"Relatório em PDF gerado com sucesso para {paciente_nome}")
-
     # Adicione esta função para lidar com o download do PDF
     def download_report(paciente_nome, pdf_path):
         with open(pdf_path, "rb") as pdf_file:
