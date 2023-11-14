@@ -76,7 +76,9 @@ with tab1:
         "Age": [age],
         "Outcome": [0]
     })
+    b64_pdf = None
     def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
+        global b64_pdf
         c = canvas.Canvas(f"Diabetes_Report_{paciente_nome}.pdf", pagesize=letter)
     
         img_path = f"Diabetes_Tree_{paciente_nome}.png"
