@@ -99,10 +99,10 @@ with tab1:
             with open(f"Diabetes_Report_{paciente_nome}.pdf", "rb") as pdf_file:
                 b64_pdf = base64.b64encode(pdf_file.read()).decode()
 
-                href = f'<a href="data:application/pdf;base64,{b64_pdf}" download="Diabetes_Report_{paciente_nome}.pdf">Baixar Relatório em PDF</a>'
-                st.markdown(href, unsafe_allow_html=True)
+            #href = f'<a href="data:application/pdf;base64,{b64_pdf}" download="Diabetes_Report_{paciente_nome}.pdf">Baixar Relatório em PDF</a>'
+            #st.markdown(href, unsafe_allow_html=True)
 
-                st.success(f"Relatório em PDF gerado com sucesso para {paciente_nome}")
+            st.success(f"Relatório em PDF gerado com sucesso para {paciente_nome}")
     
         #with open(f"Diabetes_Report_{paciente_nome}.pdf", "rb") as pdf_file:
             #b64_pdf = base64.b64encode(pdf_file.read()).decode()
