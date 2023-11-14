@@ -98,10 +98,9 @@ with tab1:
         c.save()
         
         # Convertendo o relatório em PDF para base64
-        pdf_bytes = None
-        with open(f"Diabetes_Report_{paciente_nome}.pdf", "rb") as pdf_file:
+        with open(pdf_path, "rb") as pdf_file:
             pdf_bytes = pdf_file.read()
-    
+
         if pdf_bytes:
             b64_pdf = base64.b64encode(pdf_bytes).decode()
 
