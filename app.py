@@ -96,21 +96,12 @@ with tab1:
     
         c.showPage()
         c.save()
-        # Salvando o relatório em PDF
-        pdf_path = f"Diabetes_Report_{paciente_nome}.pdf"
-        decision_tree_fig.savefig(pdf_path, format='pdf')
-
-    # Adicione esta função para lidar com o download do PDF
-    def download_report(paciente_nome, pdf_path):
-        with open(pdf_path, "rb") as pdf_file:
-            pdf_bytes = pdf_file.read()
-        st.download_button(
-            label=f"Baixar Relatório em PDF - {paciente_nome}",
-            data=pdf_bytes,
-            key=f"download_button_{paciente_nome}.pdf",
-            file_name=f"Diabetes_Report_{paciente_nome}.pdf",
-            help="Clique para baixar o relatório em PDF"
-        )
+        with open(f"Diabetes_Report_{paciente_nome}.pdf", "rb") as pdf_file:
+            b64_pdf = base64.b64encode(pdf_file.read()).decode()
+    
+        href = f'<a href="data:application/pdf;base64,{b64_pdf}" download="Diabetes_Report_{paciente_nome}.pdf">⬇️ Baixar Relatório em PDF ⬇️</a>'
+        st.markdown(href, unsafe_allow_html=True)
+        st.success(f"Relatório em PDF gerado com sucesso para {paciente_nome}")
           
     # Verificando se o botão foi clicado
     if button:
