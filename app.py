@@ -130,7 +130,7 @@ with tab1:
             conf_matrix = confusion_matrix(y_test, y_pred)
             class_report = classification_report(y_test, y_pred)
     
-            expander_metrics = st.expander("📊Métricas adicionais após previsão")
+            expander_metrics = st.expander("📊 Métricas adicionais após previsão")
             with expander_metrics:
                 st.write(f"Precisão: {precision:.2f}")
                 st.write(f"Recall: {recall:.2f}")
