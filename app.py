@@ -94,6 +94,7 @@ with tab1:
     
         c.showPage()
         c.save()
+        # Adicionando um botão de download para o relatório em PDF
         download_button = st.button("Baixar Relatório em PDF")
         if download_button:
             with open(f"Diabetes_Report_{paciente_nome}.pdf", "rb") as pdf_file:
