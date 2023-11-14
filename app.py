@@ -15,7 +15,7 @@ from PIL import Image
 from io import BytesIO
 import base64
 
-tab1, tab2, tab3, tab4 = st.tabs(["Home", "Uso do App", "Sobre a Diabetes", "Métricas adicionais"])
+tab1, tab2, tab3, tab4 = st.tabs(["🏠Home", "⚙️Uso do App", "🔎Sobre a Diabetes", "📊Métricas adicionais"])
 
 with tab1:
     st.title("Prevendo Diabetes")
@@ -170,7 +170,7 @@ with tab1:
     # Inserindo um aviso informando que é um modelo de teste
     st.warning("Atenção: este aplicativo é um modelo de teste e não substitui um diagnóstico médico profissional. Consulte um médico se você tiver sintomas ou suspeita de diabetes.")
     st.divider()
-    st.markdown("Developed by: Mauro Alves")
+    st.markdown("Developed by: Mauro Alves®")
         
     st.markdown("""
             <a href="https://github.com/Maurynn" target="_blank" style="margin-right: 15px; text-decoration: none">
