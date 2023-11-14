@@ -172,10 +172,6 @@ with tab1:
                 st.markdown("<h3 style='color: green;'>Parabéns! Paciente sem diabetes.</h3>", unsafe_allow_html=True)
             else:
                 st.markdown("<h3 style='color: red;'>⚠️Atenção! Paciente com suspeita de diabetes.</h3>", unsafe_allow_html=True)
-            #if user_pred[0] == 0:
-                #st.success("Parabéns! Você não tem diabetes.")
-            #else:
-                #st.error("Atenção! Você tem diabetes.")
             if paciente_nome:
                 generate_pdf_report(paciente_nome, user_pred[0], fig)
         else:
