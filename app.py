@@ -130,16 +130,6 @@ with tab1:
             conf_matrix = confusion_matrix(y_test, y_pred)
             class_report = classification_report(y_test, y_pred)
     
-            expander_metrics = st.expander("📊 Métricas adicionais após previsão")
-            with expander_metrics:
-                st.write(f"Precisão: {precision:.2f}")
-                st.write(f"Recall: {recall:.2f}")
-                st.write(f"F1-Score: {f1:.2f}")
-                st.write("Matriz de Confusão:")
-                st.write(conf_matrix)
-                st.write("Relatório de Classificação:")
-                st.write(class_report)
-    
             expander_decision_tree = st.expander("Árvore de Decisão")
             with expander_decision_tree:
                 # Exibindo a árvore de decisão
@@ -150,6 +140,16 @@ with tab1:
                 # Calculando a acurácia das previsões
                 acc = accuracy_score(y_test, y_pred)
                 st.write(f"A acurácia do modelo é {acc:.2f}")
+
+            expander_metrics = st.expander("📊 Métricas adicionais após previsão")
+            with expander_metrics:
+                st.write(f"Precisão: {precision:.2f}")
+                st.write(f"Recall: {recall:.2f}")
+                st.write(f"F1-Score: {f1:.2f}")
+                st.write("Matriz de Confusão:")
+                st.write(conf_matrix)
+                st.write("Relatório de Classificação:")
+                st.write(class_report)
     
                 
     
