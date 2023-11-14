@@ -108,7 +108,7 @@ with tab1:
             key=f"download_button_{paciente_nome}.pdf",
             file_name=f"Diabetes_Report_{paciente_nome}.pdf",
             on_click=None,
-         nn help="Clique para baixar o relatório em PDF"
+            help="Clique para baixar o relatório em PDF"
         )
 
         if download_button:
