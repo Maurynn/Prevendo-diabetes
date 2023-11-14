@@ -98,14 +98,16 @@ with tab1:
         c.save()
         
         # Adicionando um botão de download para o relatório em PDF
-        download_button = st.button("Baixar Relatório em PDF", on_click=download_report, args=(paciente_nome, b64_pdf))
+        download_button = st.download_button(
+            label="Baixar Relatório em PDF",
+            data=f"data:application/octet-stream;base64,{b64_pdf}",
+            key=f"download_button_{paciente_nome}.pdf",
+            on_click=None,
+            help="Clique para baixar o relatório em PDF"
+        )
+
         if download_button:
             st.success(f"Relatório em PDF gerado com sucesso para {paciente_nome}")
-
-    # Função para download do relatório em PDF
-    def download_report(paciente_nome, b64_pdf):
-        pdf_bytes = base64.b64decode(b64_pdf)
-        st.download_button(label="Clique para baixar o relatório em PDF", key=f"download_button_{paciente_nome}.pdf", data=pdf_bytes, file_name=f"Diabetes_Report_{paciente_nome}.pdf", mime="application/pdf")
       
     
         #with open(f"Diabetes_Report_{paciente_nome}.pdf", "rb") as pdf_file:
