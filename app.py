@@ -96,7 +96,11 @@ with tab1:
     
         c.showPage()
         c.save()
-        
+       
+        # Salvando o relatório em PDF
+        pdf_path = f"Diabetes_Report_{paciente_nome}.pdf"
+        decision_tree_fig.savefig(pdf_path, format='pdf')
+
         # Convertendo o relatório em PDF para base64
         with open(pdf_path, "rb") as pdf_file:
             pdf_bytes = pdf_file.read()
@@ -116,6 +120,7 @@ with tab1:
 
         if download_button:
             st.success(f"Relatório em PDF gerado com sucesso para {paciente_nome}")
+        
       
     
         #with open(f"Diabetes_Report_{paciente_nome}.pdf", "rb") as pdf_file:
