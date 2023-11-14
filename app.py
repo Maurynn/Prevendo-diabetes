@@ -130,14 +130,15 @@ with tab1:
             conf_matrix = confusion_matrix(y_test, y_pred)
             class_report = classification_report(y_test, y_pred)
     
-            # Mostrando as métricas na interface do Streamlit
-            st.write(f"Precisão: {precision:.2f}")
-            st.write(f"Recall: {recall:.2f}")
-            st.write(f"F1-Score: {f1:.2f}")
-            st.write("Matriz de Confusão:")
-            st.write(conf_matrix)
-            st.write("Relatório de Classificação:")
-            st.write(class_report)
+            with tab4:
+                # Mostrando as métricas na interface do Streamlit
+                st.write(f"Precisão: {precision:.2f}")
+                st.write(f"Recall: {recall:.2f}")
+                st.write(f"F1-Score: {f1:.2f}")
+                st.write("Matriz de Confusão:")
+                st.write(conf_matrix)
+                st.write("Relatório de Classificação:")
+                st.write(class_report)
     
     
     
@@ -209,24 +210,3 @@ O tratamento da diabetes visa manter a glicose no sangue dentro dos valores norm
 A prevenção da diabetes é possível, principalmente no caso do diabetes tipo 2. A prevenção envolve a adoção de hábitos de vida saudáveis, como evitar o tabagismo, o consumo excessivo de álcool, o estresse, o sedentarismo e a obesidade. A alimentação saudável é um dos pilares da prevenção, pois ajuda a controlar o peso corporal, a glicose no sangue, o colesterol e a pressão arterial. A alimentação saudável deve ser equilibrada, variada, colorida e adequada às necessidades de cada pessoa. Alguns dos alimentos que devem ser consumidos com moderação são: açúcar, doces, refrigerantes, sucos industrializados, farinha branca, pão branco, arroz branco, massas, batata, mandioca, frituras, gorduras saturadas, gorduras trans, sal e alimentos processados. Alguns dos alimentos que devem ser consumidos com frequência são: frutas, verduras, legumes, cereais integrais, leguminosas, oleaginosas, sementes, leite e derivados desnatados, carnes magras, peixes, ovos, azeite de oliva, alho, cebola, ervas e especiarias.
 
 Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index.php?area=02), [Ministério da Saúde](https://www.kaggle.com/datasets/datahackers/state-of-data-2021), [Portal Data Science](https://portaldatascience.com/kaggle/)""")
-
-with tab4:
-    st.header("Métricas adicionais")
-    
-   # Calculando precisão, recall e f1-score
-    precision = precision_score(y_test, y_pred)
-    recall = recall_score(y_test, y_pred)
-    f1 = f1_score(y_test, y_pred)
-
-    # Calculando matriz de confusão e relatório de classificação
-    conf_matrix = confusion_matrix(y_test, y_pred)
-    class_report = classification_report(y_test, y_pred)
-
-    # Adicionando os resultados na guia tab4
-    st.write(f"Precisão: {precision:.2f}")
-    st.write(f"Recall: {recall:.2f}")
-    st.write(f"F1-Score: {f1:.2f}")
-    st.write("Matriz de Confusão:")
-    st.write(conf_matrix)
-    st.write("Relatório de Classificação:")
-    st.write(class_report)
