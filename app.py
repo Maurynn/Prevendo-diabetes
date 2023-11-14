@@ -140,17 +140,16 @@ with tab1:
                 st.write("Relatório de Classificação:")
                 st.write(class_report)
     
+            expander_decision_tree = st.expander("Árvore de Decisão")
+            with expander_decision_tree:
+                # Calculando a acurácia das previsões
+                acc = accuracy_score(y_test, y_pred)
+                st.write(f"A acurácia do modelo é {acc:.2f}")
     
-    
-    
-            # Calculando a acurácia das previsões
-            acc = accuracy_score(y_test, y_pred)
-            st.write(f"A acurácia do modelo é {acc:.2f}")
-    
-            # Exibindo a árvore de decisão
-            fig, ax = plt.subplots(figsize=(12, 8))
-            plot_tree(clf, feature_names=X.columns.tolist(), class_names=["No", "Yes"], filled=True, rounded=True, ax=ax)
-            st.pyplot(fig)
+                # Exibindo a árvore de decisão
+                fig, ax = plt.subplots(figsize=(12, 8))
+                plot_tree(clf, feature_names=X.columns.tolist(), class_names=["No", "Yes"], filled=True, rounded=True, ax=ax)
+                st.pyplot(fig)
     
             # Fazendo a previsão para o usuário
             user_pred = clf.predict(user_data.drop("Outcome", axis=1))
