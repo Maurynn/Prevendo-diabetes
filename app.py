@@ -18,7 +18,8 @@ import base64
 tab1, tab2, tab3 = st.tabs(["🏠Home", "⚙️Uso do App", "🔎Sobre a Diabetes"])
 
 with tab1:
-    st.title("Prevendo Diabetes")
+    st.Image("imagens/logo2.png")
+    #st.title("Prevendo Diabetes")
     st.divider()
     # Criando um botão de upload
     uploaded_file = st.file_uploader("Faça upload do arquivo csv com os dados da Kaggle", type="csv")
