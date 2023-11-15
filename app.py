@@ -18,7 +18,7 @@ import base64
 tab1, tab2, tab3 = st.tabs(["🏠Home", "⚙️Uso do App", "🔎Sobre a Diabetes"])
 
 with tab1:
-    st.image("imagens/logo2.png")
+    st.image("imagens/logo3.png")
     #st.title("Prevendo Diabetes")
     st.divider()
     # Criando um botão de upload
