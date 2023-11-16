@@ -186,12 +186,22 @@ with tab1:
         """, unsafe_allow_html=True)
 
 with tab2:
-   st.header("Funcionalidades do App.")
-   st.write(""" Este aplicativo oferece a capacidade de prever a ocorrência de diabetes com base em dados fornecidos.
-   
-Você pode carregar um arquivo CSV contendo informações médicas, inserir dados de um paciente e fazer previsões sobre a presença de diabetes. 
-   
-Após inserir as informações do paciente, clique no botão 'Fazer a previsão' para obter o diagnóstico.""")
+   st.header("Como usar o App.")
+   st.write("""
+1. **Faça o Upload dos Dados:** Comece fazendo o upload de um arquivo CSV contendo dados médicos. Utilize o botão 'Faça upload do arquivo csv com os dados da Kaggle' para importar os dados necessários.
+
+2. **Explore as Funcionalidades:** Explore as funcionalidades do aplicativo, como visualizar as primeiras linhas do conjunto de dados importado e obter informações sobre a diabetes.
+
+3. **Entenda as Funcionalidades do App:** O expander 'Funcionalidades do App' fornece uma visão geral detalhada do que o aplicativo oferece. Leia para entender melhor como prever a ocorrência de diabetes e como interpretar os resultados.
+
+4. **Insira Informações do Paciente:** Utilize a barra lateral para inserir as informações do paciente, incluindo nome, sexo, idade e outros atributos relacionados à previsão de diabetes.
+
+5. **Faça a Previsão:** Após inserir as informações do paciente, clique no botão 'Fazer a previsão' para obter o diagnóstico. O resultado será exibido na página, indicando se há suspeita de diabetes ou não.
+
+6. **Explore Mais:** Utilize os expanders 'Saiba mais sobre a diabetes' e 'Métricas adicionais' para obter informações detalhadas sobre diabetes, métricas de avaliação do modelo e outros aspectos relevantes.
+
+7. **Baixe o Relatório em PDF:** Após fazer a previsão, você pode baixar um relatório em PDF clicando no botão 'Baixar Relatório em PDF'. Este relatório inclui detalhes sobre a previsão, informações do paciente e até mesmo a árvore de decisão utilizada no modelo.
+""")
 
 with tab3:
    st.header("Sobre a diabetes.")
