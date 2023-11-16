@@ -186,7 +186,7 @@ with tab1:
         """, unsafe_allow_html=True)
 
 with tab2:
-   st.header("Como usar o App.")
+   st.header("Como usar o App")
    st.write("""
 1. **Faça o Upload dos Dados:** Comece fazendo o upload de um arquivo CSV contendo dados médicos. Utilize o botão 'Faça upload do arquivo csv com os dados da Kaggle' para importar os dados necessários.
 
