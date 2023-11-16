@@ -15,7 +15,7 @@ from PIL import Image
 from io import BytesIO
 import base64
 
-tab1, tab2, tab3, tab4 = st.tabs(["🏠Home", "⚙️Uso do App", "🔎Sobre a Diabetes", "Visualizar distribuições"])
+tab1, tab2, tab3, tab4 = st.tabs(["🏠 Home", "⚙️ Uso do App", "🔎 Sobre a Diabetes", "📊 Visualizar distribuições"])
 
 with tab1:
     st.image("imagens/logo2.png")
