@@ -224,7 +224,10 @@ df = pd.read_csv(uploaded_file)
 
 with tab4:
     st.header("Visualizar Distribuições")
-
+    if uploaded_file is not None:
+        # Lendo o arquivo csv
+        df = pd.read_csv(uploaded_file)
+    
     # Verifica se o DataFrame foi carregado
     if not df.empty:
         st.write("Explore as distribuições de diferentes variáveis nos casos de diabetes e sem diabetes.")
