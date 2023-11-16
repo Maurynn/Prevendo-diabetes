@@ -36,6 +36,9 @@ with tab1:
         st.info("""Ainda não possui o arquivo?
         [Clique Aqui](https://www.kaggle.com/uciml/pima-indians-diabetes-database/download) para fazer download.
         O arquivo vem compactado, lembre-se de extrair em alguma pasta de sua preferência.""")
+
+# Definindo o DataFrame globalmente
+df = pd.DataFrame()
 with tab4:
     st.write("Explore as distribuições de diferentes variáveis nos casos de diabetes e sem diabetes.")
 
