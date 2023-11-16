@@ -220,7 +220,7 @@ A prevenção da diabetes é possível, principalmente no caso do diabetes tipo 
 Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index.php?area=02), [Ministério da Saúde](https://www.kaggle.com/datasets/datahackers/state-of-data-2021), [Portal Data Science](https://portaldatascience.com/kaggle/)""")
 # ...
 with tab4:
-    st.header("Visualizar Distribuições")
+    st.header("📊 Visualizar Distribuições")
     
     if uploaded_file is not None:
         # Selecione a variável para visualizar
