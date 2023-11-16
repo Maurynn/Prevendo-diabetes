@@ -15,7 +15,7 @@ from PIL import Image
 from io import BytesIO
 import base64
 
-tab1, tab2, tab3 = st.tabs(["🏠Home", "⚙️Uso do App", "🔎Sobre a Diabetes"])
+tab1, tab2, tab3, tab4 = st.tabs(["🏠Home", "⚙️Uso do App", "🔎Sobre a Diabetes", "Visualizar distribuições"])
 
 with tab1:
     st.image("imagens/logo2.png")
@@ -219,11 +219,7 @@ A prevenção da diabetes é possível, principalmente no caso do diabetes tipo 
 
 Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index.php?area=02), [Ministério da Saúde](https://www.kaggle.com/datasets/datahackers/state-of-data-2021), [Portal Data Science](https://portaldatascience.com/kaggle/)""")
 
-# Adicionando uma nova tab para visualizar distribuições
-tab4 = st.container()
-
 with tab4:
-    st.title("Visualizar Distribuições")
     st.write("Explore as distribuições de diferentes variáveis nos casos de diabetes e sem diabetes.")
 
     # Selecione a variável para visualizar
