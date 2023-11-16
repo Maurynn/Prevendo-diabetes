@@ -229,6 +229,5 @@ with tab4:
 
     # Visualize a distribuição usando um gráfico de barras ou histograma
     fig, ax = plt.subplots(figsize=(10, 6))
-    g = sns.FacetGrid(df, col="Outcome", height=6)
-    g.map(sns.histplot, variavel_selecionada, kde=True)
+    sns.histplot(data=df, x=variavel_selecionada, hue="Outcome", kde=True, multiple="stack", ax=ax)
     st.pyplot(fig)
