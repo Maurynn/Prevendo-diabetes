@@ -36,16 +36,16 @@ with tab1:
         st.info("""Ainda não possui o arquivo?
         [Clique Aqui](https://www.kaggle.com/uciml/pima-indians-diabetes-database/download) para fazer download.
         O arquivo vem compactado, lembre-se de extrair em alguma pasta de sua preferência.""")
-    with tab4:
-        st.write("Explore as distribuições de diferentes variáveis nos casos de diabetes e sem diabetes.")
+with tab4:
+    st.write("Explore as distribuições de diferentes variáveis nos casos de diabetes e sem diabetes.")
 
-        # Selecione a variável para visualizar
-        variavel_selecionada = st.selectbox("Selecione a Variável", df.columns)
+    # Selecione a variável para visualizar
+    variavel_selecionada = st.selectbox("Selecione a Variável", df.columns)
 
-        # Visualize a distribuição usando um gráfico de barras ou histograma
-        fig, ax = plt.subplots(figsize=(10, 6))
-        sns.histplot(data=df, x=variavel_selecionada, hue="Outcome", kde=True, multiple="stack", ax=ax)
-        st.pyplot(fig)
+    # Visualize a distribuição usando um gráfico de barras ou histograma
+    fig, ax = plt.subplots(figsize=(10, 6))
+    sns.histplot(data=df, x=variavel_selecionada, hue="Outcome", kde=True, multiple="stack", ax=ax)
+    st.pyplot(fig)
     
     # Carregando a imagem da logo
     logo = Image.open("imagens/IMG_20231110_220951.png")
