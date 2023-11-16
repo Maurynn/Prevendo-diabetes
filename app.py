@@ -229,5 +229,5 @@ with tab4:
 
     # Visualize a distribuição usando um gráfico de barras ou histograma
     fig, ax = plt.subplots(figsize=(10, 6))
-    sns.histplot(data=df, x=variavel_selecionada, hue="Outcome", kde=True, multiple="stack", ax=ax)
+    sns.histplot(data=df, x=variavel_selecionada, kde=True, hue="Outcome", multiple="stack", ax=ax)
     st.pyplot(fig)
