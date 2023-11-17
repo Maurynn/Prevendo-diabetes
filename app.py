@@ -93,7 +93,7 @@ with tab1:
         c.drawString(100, 190, f"Resultado da Previsão: {'Diabetes' if prediction == 1 else 'Sem Diabetes'}")
         c.drawString(100, 170, f"Idade: {age}")
         c.drawString(100, 150, f"Sexo: {sex}")
-        c.drawString(100, 120, f"Acurácia: {acc:.2f}")
+        c.drawString(100, 130, f"Acurácia: {acc:.2f}")
     
         c.showPage()
         c.save()
