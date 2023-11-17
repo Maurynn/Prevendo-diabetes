@@ -231,4 +231,4 @@ with tab4:
         sns.histplot(data=df, x=variavel_selecionada, hue="Outcome", kde=True, multiple="stack", ax=ax)
         st.pyplot(fig)
     else:
-        st.warning("Carregue o arquivo CSV antes de visualizar as distribuições.")
+        st.warning("Carregue o arquivo CSV na aba "🏠 Home" antes de visualizar as distribuições.")
