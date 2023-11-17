@@ -19,7 +19,6 @@ tab1, tab2, tab3, tab4 = st.tabs(["🏠 Home", "⚙️ Uso do App", "🔎 Sobre 
 
 with tab1:
     st.image("imagens/logo2.png")
-    #st.title("Prevendo Diabetes")
     st.divider()
     # Criando um botão de upload
     uploaded_file = st.file_uploader("Faça upload do arquivo csv com os dados da Kaggle", type="csv")
@@ -49,7 +48,7 @@ with tab1:
     # Criando um slider para a idade
     age = st.sidebar.slider("Idade", 0, 100, 25)
     # Criando um slider para o número de gestações
-    preg = st.sidebar.slider("Número de gestações", 0, 20, 0)
+    preg = st.sidebar.slider("Número de gestações", 0, 10, 0)
     # Criando um slider para a glicose
     glu = st.sidebar.slider("Glicose", 0, 200, 100)
     # Criando um slider para a pressão arterial
@@ -94,6 +93,7 @@ with tab1:
         c.drawString(100, 190, f"Resultado da Previsão: {'Diabetes' if prediction == 1 else 'Sem Diabetes'}")
         c.drawString(100, 170, f"Idade: {age}")
         c.drawString(100, 150, f"Sexo: {sex}")
+        c.drawString(100, 120, f"Acurácia: {acc:.2f}")
     
         c.showPage()
         c.save()
