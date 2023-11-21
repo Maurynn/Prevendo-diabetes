@@ -90,7 +90,7 @@ with tab1:
         c.drawImage(img_path, 50, 260, width=500, height=350)
         c.setFont("Helvetica", 12)
         c.drawString(100, 210, f"Nome do Paciente: {paciente_nome}")
-        c.drawString(100, 190, f"Resultado da Previsão: {'Diabetes' if prediction == 1 else 'Sem Diabetes'}")
+        c.drawString(100, 190, f"Resultado da Previsão: {'Paciente com Diabetes' if prediction == 1 else 'Paciente sem Diabetes'}")
         c.drawString(100, 170, f"Idade: {age}")
         c.drawString(100, 150, f"Sexo: {sex}")
         c.drawString(100, 130, f"Acurácia: {acc:.2f}")
