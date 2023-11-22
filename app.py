@@ -228,7 +228,7 @@ def generate_explanation(graph_type):
     prompt = f"Explique o gráfico de distribuição {graph_type}."
     try:
         response = openai.Completion.create(
-            engine="davinci-002",  # Atualizado para o engine mais recente
+            engine="text-davinci_003",  # Atualizado para o engine mais recente
             prompt=prompt,
             temperature=0.7,
             max_tokens=150,
