@@ -254,7 +254,7 @@ with tab4:  # Adicionei uma linha em branco para separar os blocos de código
         st.pyplot(fig)
 
         # Adicione um botão para gerar explicação
-        if st.button("Gerar Explicação do Gráfico"):
+        if st.button("**Gerar Explicação do Gráfico**"):
             explanation = generate_explanation(variavel_selecionada)
             st.divider()
             st.write("Explicação do Gráfico:")
