@@ -17,7 +17,7 @@ import base64
 from openai import OpenAI
 
 # Definindo a chave da API GPT-3
-openai.api_key = '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'
+OpenAI.api_key = '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'
 
 tab1, tab2, tab3, tab4 = st.tabs(["🏠 Home", "⚙️ Uso do App", "🔎 Sobre a Diabetes", "📊 Visualizar distribuições"])
 
