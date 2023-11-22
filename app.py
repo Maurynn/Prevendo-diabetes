@@ -260,9 +260,9 @@ with tab4:
             # Mostre um spinner enquanto a explicação é gerada
             with st.spinner("Gerando explicação..."):
                 explanation = generate_explanation(variavel_selecionada)
-                # Substitua o botão pela explicação
-                button_placeholder.expander("**Explicação do Gráfico**")
-            with button_placeholder:
+            # Substitua o botão pelo expander com a explicação
+            explication = button_placeholder.expander("**Explicação do Gráfico**")
+            with explication:
                 st.write(explanation)   
     else:
         st.warning("Por favor, faça o upload do arquivo CSV na tab '🏠Home' para explorar as distribuições.")
