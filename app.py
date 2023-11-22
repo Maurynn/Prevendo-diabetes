@@ -225,7 +225,7 @@ Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index
 
 # Função para gerar explicação usando GPT-3
 def generate_explanation(graph_type):
-    prompt = f"Explique de forma resumida e objetiva o gráfico de distribuição {graph_type}."
+    prompt = f"Explique de forma objetiva o gráfico de distribuições {graph_type}."
     try:
         response = openai.Completion.create(
             engine="gpt-3.5-turbo-instruct",  # Atualizado para o engine mais recente
@@ -256,11 +256,9 @@ with tab4:  # Adicionei uma linha em branco para separar os blocos de código
         # Adicione um botão para gerar explicação
         if st.button("Gerar Explicação do Gráfico"):
             explanation = generate_explanation(variavel_selecionada)
-            #st.divider()
             with st.container():
                 st.write("**Explicação do Gráfico**:")
                 st.write(explanation)
-            #st.divider()
     else:
         st.warning("Por favor, faça o upload do arquivo CSV na tab '🏠Home' para explorar as distribuições.")
         
