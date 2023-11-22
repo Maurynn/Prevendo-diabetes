@@ -16,8 +16,6 @@ from io import BytesIO
 import base64
 from openai import OpenAI
 
-# Definindo a chave da API GPT-3
-OpenAI.api_key = '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'
 
 tab1, tab2, tab3, tab4 = st.tabs(["🏠 Home", "⚙️ Uso do App", "🔎 Sobre a Diabetes", "📊 Visualizar distribuições"])
 
@@ -223,9 +221,11 @@ A prevenção da diabetes é possível, principalmente no caso do diabetes tipo 
 
 Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index.php?area=02), [Ministério da Saúde](https://www.kaggle.com/datasets/datahackers/state-of-data-2021), [Portal Data Science](https://portaldatascience.com/kaggle/)""")
 
-
+# Definindo a chave da API GPT-3
+OpenAI.api_key = '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'
 # Função para gerar explicação usando GPT-3
 def generate_explanation(graph_type):
+    
     prompt = f"Explique o gráfico de distribuição {graph_type}."
     client = OpenAI()
     response = client.chat.completions.create(
