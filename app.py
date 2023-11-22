@@ -227,7 +227,8 @@ Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index
 # Função para gerar explicação usando GPT-3
 def generate_explanation(graph_type):
     prompt = f"Explique o gráfico de distribuição {graph_type}."
-    response = OpenAI.Completion.create(
+    client = OpenAI()
+    response = client.chat.completions.create(
         engine="text-davinci-002",  # Escolha o engine apropriado
         prompt=prompt,
         temperature=0.7,
