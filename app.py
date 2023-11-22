@@ -34,7 +34,7 @@ with tab1:
         # Lendo o arquivo csv
         df = pd.read_csv(uploaded_file)
         # Mostrando as primeiras linhas do dataframe
-        st.write(df.head())
+        st.dataframe(df.head())
     
     else:
         # Mostrando uma mensagem de erro se o arquivo não foi carregado
