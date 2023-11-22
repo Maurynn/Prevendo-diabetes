@@ -222,9 +222,8 @@ A prevenção da diabetes é possível, principalmente no caso do diabetes tipo 
 
 Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index.php?area=02), [Ministério da Saúde](https://www.kaggle.com/datasets/datahackers/state-of-data-2021), [Portal Data Science](https://portaldatascience.com/kaggle/)""")
 
-# Obtenha a chave da API da variável de ambiente (GitHub Secret)
-openai_api_key = os.getenv("OPENAI_API_KEY")
-
+# Obtenha a chave da API da variável de ambiente (GitHub )
+os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 # Função para gerar explicação usando GPT-3
 def generate_explanation(graph_type):
     prompt = f"Explique o gráfico de distribuição {graph_type}."
