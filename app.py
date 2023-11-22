@@ -218,7 +218,25 @@ O tratamento da diabetes visa manter a glicose no sangue dentro dos valores norm
 A prevenção da diabetes é possível, principalmente no caso do diabetes tipo 2. A prevenção envolve a adoção de hábitos de vida saudáveis, como evitar o tabagismo, o consumo excessivo de álcool, o estresse, o sedentarismo e a obesidade. A alimentação saudável é um dos pilares da prevenção, pois ajuda a controlar o peso corporal, a glicose no sangue, o colesterol e a pressão arterial. A alimentação saudável deve ser equilibrada, variada, colorida e adequada às necessidades de cada pessoa. Alguns dos alimentos que devem ser consumidos com moderação são: açúcar, doces, refrigerantes, sucos industrializados, farinha branca, pão branco, arroz branco, massas, batata, mandioca, frituras, gorduras saturadas, gorduras trans, sal e alimentos processados. Alguns dos alimentos que devem ser consumidos com frequência são: frutas, verduras, legumes, cereais integrais, leguminosas, oleaginosas, sementes, leite e derivados desnatados, carnes magras, peixes, ovos, azeite de oliva, alho, cebola, ervas e especiarias.
 
 Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index.php?area=02), [Ministério da Saúde](https://www.kaggle.com/datasets/datahackers/state-of-data-2021), [Portal Data Science](https://portaldatascience.com/kaggle/)""")
-# ...
+
+# Definindo a chave da API GPT-3
+openai.api_key = 'sua_chave_de_api'
+
+# Função para gerar explicação usando GPT-3
+def generate_explanation(graph_type):
+    prompt = f"Explique o gráfico de distribuição {graph_type}."
+    response = openai.Completion.create(
+        engine="text-davinci-002",  # Escolha o engine apropriado
+        prompt=prompt,
+        temperature=0.7,
+        max_tokens=150,
+        n=1,
+        stop=None
+    )
+    explanation = response['choices'][0]['text']
+    return explanation
+
+# Código existente
 with tab4:
     st.header("📊 Visualizar Distribuições")
     
@@ -230,5 +248,12 @@ with tab4:
         fig, ax = plt.subplots(figsize=(10, 6))
         sns.histplot(data=df, x=variavel_selecionada, hue="Outcome", kde=True, multiple="stack", ax=ax)
         st.pyplot(fig)
+
+        # Adicione um botão para gerar explicação
+        if st.button("Gerar Explicação do Gráfico"):
+            explanation = generate_explanation(variavel_selecionada)
+            st.write("Explicação do Gráfico:")
+            st.write(explanation)
     else:
         st.warning("Por favor, faça o upload do arquivo CSV na tab '🏠Home' para explorar as distribuições.")
+        
