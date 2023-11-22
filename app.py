@@ -240,8 +240,7 @@ def generate_explanation(graph_type):
         explanation = str(e)  # Captura e retorna a mensagem de erro, se houver
     return explanation
 
-# Código existente
-with tab4:  # Adicionei uma linha em branco para separar os blocos de código
+with tab4:
     st.header("📊 Visualizar Distribuições")
     
     if uploaded_file is not None:
