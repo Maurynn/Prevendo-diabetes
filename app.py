@@ -225,9 +225,8 @@ Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index
 openai.api_key = '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'
 # Função para gerar explicação usando GPT-3
 def generate_explanation(graph_type):
-    client = openai()
     prompt = f"Explique o gráfico de distribuição {graph_type}."
-    response = client.chat.completions.create(
+    response = openai.completions.create(
         engine="text-davinci-002",  # Escolha o engine apropriado
         prompt=prompt,
         temperature=0.7,
