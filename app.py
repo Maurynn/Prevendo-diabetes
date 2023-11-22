@@ -224,21 +224,27 @@ Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index
 # Definindo a chave da API GPT-3
 openai.api_key = "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"
 
-# Adicione esta função para gerar explicações usando a OpenAI
-def generate_explanation(selected_variable):
-    prompt = f"Explique a distribuição da variável {selected_variable} em relação à diabetes."
+# Definindo a chave da API GPT-3
+openai.api_key = 'sua_chave_de_api'
+
+# Função para gerar explicação usando GPT-3
+def generate_explanation(graph_type):
+    prompt = f"Explique o gráfico de distribuição {graph_type}."
     response = openai.Completion.create(
-        engine="text-davinci-002",
+        engine="davinci",  # Removi o texto do engine, pois é desnecessário
         prompt=prompt,
-        max_tokens=150
+        temperature=0.7,
+        max_tokens=150,
+        n=1,
+        stop=None
     )
     explanation = response['choices'][0]['text']
     return explanation
 
-# Adicione a funcionalidade de geração de explicações ao seu código existente
-with tab4:
+# Código existente
+with tab4:  # Adicionei uma linha em branco para separar os blocos de código
     st.header("📊 Visualizar Distribuições")
-
+    
     if uploaded_file is not None:
         # Selecione a variável para visualizar
         variavel_selecionada = st.selectbox("Selecione a Variável", df.columns)
@@ -248,10 +254,11 @@ with tab4:
         sns.histplot(data=df, x=variavel_selecionada, hue="Outcome", kde=True, multiple="stack", ax=ax)
         st.pyplot(fig)
 
-        # Gere uma explicação usando a OpenAI
-        explanation = generate_explanation(variavel_selecionada)
-        st.write("Explicação da Distribuição:")
-        st.write(explanation)
+        # Adicione um botão para gerar explicação
+        if st.button("Gerar Explicação do Gráfico"):
+            explanation = generate_explanation(variavel_selecionada)
+            st.write("Explicação do Gráfico:")
+            st.write(explanation)
     else:
         st.warning("Por favor, faça o upload do arquivo CSV na tab '🏠Home' para explorar as distribuições.")
         
