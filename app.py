@@ -223,7 +223,7 @@ Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index
 
 # Definindo a chave da API GPT-3
 #openai.api_key = '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'
-openai.api_key = "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
+openai.api_key = "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"
 # Função para gerar explicação usando GPT-3
 
 def generate_explanation(selected_variable):
