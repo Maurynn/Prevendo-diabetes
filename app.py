@@ -228,7 +228,7 @@ def generate_explanation(graph_type):
     prompt = f"Explique o gráfico de distribuição {graph_type}."
     try:
         client = OpenAI()
-        response = client.chat.Completion.create(
+        response = client.Completions.create(
             engine="gpt-3.5-turbo",  # Atualizado para o engine mais recente
             prompt=prompt,
             temperature=0.7,
