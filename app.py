@@ -14,6 +14,7 @@ from reportlab.lib.utils import ImageReader
 from PIL import Image
 from io import BytesIO
 import base64
+import openai
 
 tab1, tab2, tab3, tab4 = st.tabs(["🏠 Home", "⚙️ Uso do App", "🔎 Sobre a Diabetes", "📊 Visualizar distribuições"])
 
