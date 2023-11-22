@@ -19,6 +19,8 @@ import os
 
 os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 
+st.set_page_config(layout="wide")
+
 tab1, tab2, tab3, tab4 = st.tabs(["🏠 Home", "⚙️ Uso do App", "🔎 Sobre a Diabetes", "📊 Visualizar distribuições"])
 
 with tab1:
