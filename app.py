@@ -257,8 +257,22 @@ with tab4:  # Adicionei uma linha em branco para separar os blocos de código
         if st.button("Gerar Explicação do Gráfico"):
             explanation = generate_explanation(variavel_selecionada)
             explication = st.expander("**Explicação do Gráfico**")
+            # Adiciona um botão escondido para ser clicado automaticamente
+            hidden_button = st.button("hidden_button", key="hidden_button", style="display: none;")
+    
+            # Script de JavaScript para clicar no botão escondido após um curto atraso
+            script = """
+            <script>
+                setTimeout(function() {
+                    document.querySelector('[data-baseweb="button"]').click();
+                }, 100);
+            </script>
+            """
+    
+            # Injeta o script na página
+            st.markdown(script, unsafe_allow_html=True)
+    
             with explication:
-                #st.write("**Explicação do Gráfico**:")
                 st.write(explanation)
     else:
         st.warning("Por favor, faça o upload do arquivo CSV na tab '🏠Home' para explorar as distribuições.")
