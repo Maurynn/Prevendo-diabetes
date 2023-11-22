@@ -222,7 +222,7 @@ A prevenção da diabetes é possível, principalmente no caso do diabetes tipo 
 Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index.php?area=02), [Ministério da Saúde](https://www.kaggle.com/datasets/datahackers/state-of-data-2021), [Portal Data Science](https://portaldatascience.com/kaggle/)""")
 
 # Definindo a chave da API GPT-3
-openai.api_key = "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"
+openai.api_key = "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"
 
 # Função para gerar explicação usando GPT-3
 def generate_explanation(graph_type):
