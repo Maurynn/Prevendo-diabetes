@@ -230,8 +230,8 @@ def generate_explanation(graph_type):
         response = openai.Completion.create(
             engine="gpt-3.5-turbo-instruct",  # Atualizado para o engine mais recente
             prompt=prompt,
-            temperature=0.7,
-            max_tokens=150,
+            temperature=0.8,
+            max_tokens=300,
             n=1,
             stop=None
         )
