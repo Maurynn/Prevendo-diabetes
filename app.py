@@ -227,15 +227,18 @@ openai.api_key = "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"
 # Função para gerar explicação usando GPT-3
 def generate_explanation(graph_type):
     prompt = f"Explique o gráfico de distribuição {graph_type}."
-    response = openai.Completion.create(
-        engine="davinci",  # Removi o texto do engine, pois é desnecessário
-        prompt=prompt,
-        temperature=0.7,
-        max_tokens=150,
-        n=1,
-        stop=None
-    )
-    explanation = response['choices'][0]['text']
+    try:
+        response = openai.Completion.create(
+            engine="davinci-codex",  # Atualizado para o engine mais recente
+            prompt=prompt,
+            temperature=0.7,
+            max_tokens=150,
+            n=1,
+            stop=None
+        )
+        explanation = response.choices[0].text.strip()  # Atualizado para acessar corretamente o texto da resposta
+    except Exception as e:
+        explanation = str(e)  # Captura e retorna a mensagem de erro, se houver
     return explanation
 
 # Código existente
