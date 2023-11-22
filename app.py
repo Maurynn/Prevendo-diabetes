@@ -224,9 +224,6 @@ Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index
 # Definindo a chave da API GPT-3
 openai.api_key = "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"
 
-# Definindo a chave da API GPT-3
-openai.api_key = 'sua_chave_de_api'
-
 # Função para gerar explicação usando GPT-3
 def generate_explanation(graph_type):
     prompt = f"Explique o gráfico de distribuição {graph_type}."
