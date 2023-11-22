@@ -14,7 +14,7 @@ from reportlab.lib.utils import ImageReader
 from PIL import Image
 from io import BytesIO
 import base64
-from openai import OpenAI
+import openai
 import os
 
 os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
@@ -227,8 +227,7 @@ Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index
 def generate_explanation(graph_type):
     prompt = f"Explique o gráfico de distribuição {graph_type}."
     try:
-        client = OpenAI()
-        response = client.Completions.create(
+        response = openai.ChatCompletion.create(
             engine="gpt-3.5-turbo",  # Atualizado para o engine mais recente
             prompt=prompt,
             temperature=0.7,
