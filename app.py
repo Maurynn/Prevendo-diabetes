@@ -256,8 +256,9 @@ with tab4:  # Adicionei uma linha em branco para separar os blocos de código
         # Adicione um botão para gerar explicação
         if st.button("Gerar Explicação do Gráfico"):
             explanation = generate_explanation(variavel_selecionada)
-            with st.expander():
-                st.write("**Explicação do Gráfico**:")
+            explication = st.expander("Explicação do Gráfico")
+            with explication:
+                #st.write("**Explicação do Gráfico**:")
                 st.write(explanation)
     else:
         st.warning("Por favor, faça o upload do arquivo CSV na tab '🏠Home' para explorar as distribuições.")
