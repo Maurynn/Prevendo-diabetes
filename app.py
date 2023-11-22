@@ -223,26 +223,22 @@ Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index
 
 # Definindo a chave da API GPT-3
 openai.api_key = "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"
-# Função para gerar explicação usando GPT-3
 
+# Adicione esta função para gerar explicações usando a OpenAI
 def generate_explanation(selected_variable):
-    prompt = f"Explique a distribuição da variável {selected_variable}."
-
+    prompt = f"Explique a distribuição da variável {selected_variable} em relação à diabetes."
     response = openai.Completion.create(
-        engine="text-davinci-002",  # Especifique o motor desejado
+        engine="text-davinci-002",
         prompt=prompt,
-        max_tokens=150,
-        n=1,
-        stop=None,
+        max_tokens=150
     )
-
-    explanation = response.choices[0].text.strip()
+    explanation = response['choices'][0]['text']
     return explanation
 
-# Código existente
+# Adicione a funcionalidade de geração de explicações ao seu código existente
 with tab4:
     st.header("📊 Visualizar Distribuições")
-    
+
     if uploaded_file is not None:
         # Selecione a variável para visualizar
         variavel_selecionada = st.selectbox("Selecione a Variável", df.columns)
@@ -252,11 +248,10 @@ with tab4:
         sns.histplot(data=df, x=variavel_selecionada, hue="Outcome", kde=True, multiple="stack", ax=ax)
         st.pyplot(fig)
 
-        # Adicione um botão para gerar explicação
-        if st.button("Gerar Explicação do Gráfico"):
-            explanation = generate_explanation(variavel_selecionada)
-            st.write("Explicação do Gráfico:")
-            st.write(explanation)
+        # Gere uma explicação usando a OpenAI
+        explanation = generate_explanation(variavel_selecionada)
+        st.write("Explicação da Distribuição:")
+        st.write(explanation)
     else:
         st.warning("Por favor, faça o upload do arquivo CSV na tab '🏠Home' para explorar as distribuições.")
         
