@@ -227,7 +227,7 @@ Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index
 def generate_explanation(graph_type):
     prompt = f"Explique o gráfico de distribuição {graph_type}."
     try:
-        response = openai.ChatCompletion.create(
+        response = openai.Completion.create(
             engine="gpt-3.5-turbo",  # Atualizado para o engine mais recente
             prompt=prompt,
             temperature=0.7,
