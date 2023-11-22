@@ -252,13 +252,19 @@ with tab4:  # Adicionei uma linha em branco para separar os blocos de código
         fig, ax = plt.subplots(figsize=(10, 6))
         sns.histplot(data=df, x=variavel_selecionada, hue="Outcome", kde=True, multiple="stack", ax=ax)
         st.pyplot(fig)
+        
+        # Crie um espaço reservado para o botão
+        button_placeholder = st.empty()
 
         # Adicione um botão para gerar explicação
-        if st.button("Gerar Explicação do Gráfico"):
-            explanation = generate_explanation(variavel_selecionada)
-            explication = st.expander("**Explicação do Gráfico**")
-            with explication:
-                st.write(explanation)
+        if button_placeholder.button("Gerar Explicação do Gráfico"):
+            # Mostre um spinner enquanto a explicação é gerada
+            with st.spinner("Gerando explicação..."):
+                explanation = generate_explanation(variavel_selecionada)
+            # Substitua o botão pela explicação
+            button_placeholder.expander("**Explicação do Gráfico**")
+            with button_placeholder:
+                st.write(explanation)   
     else:
         st.warning("Por favor, faça o upload do arquivo CSV na tab '🏠Home' para explorar as distribuições.")
         
