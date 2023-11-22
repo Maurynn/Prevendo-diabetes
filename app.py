@@ -14,7 +14,7 @@ from reportlab.lib.utils import ImageReader
 from PIL import Image
 from io import BytesIO
 import base64
-import openai
+from openai import OpenAi
 
 # Definindo a chave da API GPT-3
 openai.api_key = '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'
