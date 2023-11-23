@@ -52,11 +52,13 @@ with tab1:
     # Criando um sidebar para inserir as informações do usuário
     st.sidebar.header("Insira as informações do paciente:")
 
-    # Criando uma coluna na sidebar
-    col = st.sidebar.beta_columns(1)[0]
+    # Criando duas colunas na sidebar
+    col1, col2 = st.sidebar.columns(2)
 
-    # Colocando os widgets na coluna
-    with col:
+    # Colocando os widgets na primeira coluna
+    with col1:
+        # Criando um título para os dados pessoais
+        st.sidebar.markdown("**Dados pessoais**")
         paciente_nome = st.text_input("Nome do Paciente")
         # Criando um seletor para o sexo
         sex = st.selectbox("Sexo", ("Feminino", "Masculino"))
@@ -64,6 +66,11 @@ with tab1:
         age = st.slider("Idade", 0, 100, 25)
         # Criando um seletor para peso
         weight = st.slider("Peso", 0, 150, 65)
+
+    # Colocando os widgets na segunda coluna
+    with col2:
+        # Criando um título para os dados clínicos
+        st.sidebar.markdown("**Dados clínicos**")
         # Criando um slider para o número de gestações
         preg = st.slider("Número de gestações", 0, 10, 0)
         # Criando um slider para a glicose
@@ -78,9 +85,11 @@ with tab1:
         bmi = st.slider("Índice de massa corporal", 0, 50, 25)
         # Criando um slider para a hereditariedade
         ped = st.slider("Hereditariedade", 0.0, 1.0, 0.5)
-        # Criando um botão para fazer a previsão
-        button = st.button("Fazer a previsão")
 
+        # Criando um título para a previsão
+        st.sidebar.markdown("**Previsão**")
+        # Criando um botão para fazer a previsão
+        button = st.sidebar.button("Fazer a previsão")
 
     # Criando um dataframe com as informações do usuário
     user_data = pd.DataFrame({
