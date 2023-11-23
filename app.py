@@ -50,6 +50,7 @@ with tab1:
     # Exibindo a logo na sidebar
     st.sidebar.image(logo, use_column_width=True)
     with st.container():
+        st.write("Testando")
         # Criando um sidebar para inserir as informações do usuário
         st.sidebar.header("Insira as informações do paciente:")
         paciente_nome = st.sidebar.text_input("Nome do Paciente")
