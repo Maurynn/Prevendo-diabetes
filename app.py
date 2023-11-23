@@ -56,6 +56,8 @@ with tab1:
     sex = st.sidebar.selectbox("Sexo", ("Feminino", "Masculino"))
     # Criando um slider para a idade
     age = st.sidebar.slider("Idade", 0, 100, 25)
+    # Criando um seletor para peso
+    weight = st.sidebar.slider("Peso", 0, 150, 65)
     # Criando um slider para o número de gestações
     preg = st.sidebar.slider("Número de gestações", 0, 10, 0)
     # Criando um slider para a glicose
@@ -83,6 +85,7 @@ with tab1:
         "BMI": [bmi],
         "DiabetesPedigreeFunction": [ped],
         "Age": [age],
+        "Weight": [weight],
         "Outcome": [0]
     })
     b64_pdf = None
