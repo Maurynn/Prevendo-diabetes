@@ -54,6 +54,7 @@ with tab1:
     paciente_nome = st.sidebar.text_input("Nome do Paciente")
     # Criando um seletor para o sexo
     sex = st.sidebar.selectbox("Sexo", ("Feminino", "Masculino"))
+    st.divider()
     # Criando um slider para a idade
     age = st.sidebar.slider("Idade", 0, 100, 25)
     # Criando um seletor para peso
