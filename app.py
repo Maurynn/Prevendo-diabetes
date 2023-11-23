@@ -263,10 +263,10 @@ with tab4:
         # Adicione um botão para gerar explicação
         if button_placeholder.button("Gerar Explicação do Gráfico"):
             # Mostre um spinner enquanto a explicação é gerada
-            with st.spinner("Gerando explicação..."):
+            with st.spinner("Gerando Explicação..."):
                 explanation = generate_explanation(variavel_selecionada)
             # Substitua o botão pelo expander com a explicação
-            explication = button_placeholder.expander("**Explicação do Gráfico**")
+            explication = button_placeholder.expander("**Exibir Explicação do Gráfico**")
             with explication:
                 st.write(explanation)   
     else:
