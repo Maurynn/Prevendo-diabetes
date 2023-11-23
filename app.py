@@ -45,40 +45,43 @@ with tab1:
         [Clique Aqui](https://www.kaggle.com/uciml/pima-indians-diabetes-database/download) para fazer download.
         O arquivo vem compactado, lembre-se de extrair em alguma pasta de sua preferência.""")
 
-    # Carregando a imagem da logo
     logo = Image.open("imagens/IMG_20231110_220951.png")
     # Exibindo a logo na sidebar
     st.sidebar.image(logo, use_column_width=True)
-    container = st.container()
-    container.sidebar.write("teste")
-    
+
     # Criando um sidebar para inserir as informações do usuário
     st.sidebar.header("Insira as informações do paciente:")
-    paciente_nome = st.sidebar.text_input("Nome do Paciente")
+
+    # Criando uma coluna na sidebar
+    col = st.sidebar.beta_columns(1)[0]
+
+    # Colocando os widgets na coluna
+    with col:
+    paciente_nome = st.text_input("Nome do Paciente")
     # Criando um seletor para o sexo
-    sex = st.sidebar.selectbox("Sexo", ("Feminino", "Masculino"))
-    
+    sex = st.selectbox("Sexo", ("Feminino", "Masculino"))
     # Criando um slider para a idade
-    age = st.sidebar.slider("Idade", 0, 100, 25)
+    age = st.slider("Idade", 0, 100, 25)
     # Criando um seletor para peso
-    weight = st.sidebar.slider("Peso", 0, 150, 65)
+    weight = st.slider("Peso", 0, 150, 65)
     # Criando um slider para o número de gestações
-    preg = st.sidebar.slider("Número de gestações", 0, 10, 0)
+    preg = st.slider("Número de gestações", 0, 10, 0)
     # Criando um slider para a glicose
-    glu = st.sidebar.slider("Glicose", 0, 200, 100)
+    glu = st.slider("Glicose", 0, 200, 100)
     # Criando um slider para a pressão arterial
-    bp = st.sidebar.slider("Pressão arterial", 0, 120, 60)
+    bp = st.slider("Pressão arterial", 0, 120, 60)
     # Criando um slider para a espessura da pele
-    skin = st.sidebar.slider("Espessura da pele", 0, 100, 20)
+    skin = st.slider("Espessura da pele", 0, 100, 20)
     # Criando um slider para a insulina
-    ins = st.sidebar.slider("Insulina", 0, 800, 100)
+    ins = st.slider("Insulina", 0, 800, 100)
     # Criando um slider para o índice de massa corporal
-    bmi = st.sidebar.slider("Índice de massa corporal", 0, 50, 25)
+    bmi = st.slider("Índice de massa corporal", 0, 50, 25)
     # Criando um slider para a hereditariedade
-    ped = st.sidebar.slider("Hereditariedade", 0.0, 1.0, 0.5)
+    ped = st.slider("Hereditariedade", 0.0, 1.0, 0.5)
     # Criando um botão para fazer a previsão
-    button = st.sidebar.button("Fazer a previsão")
-    st.divider()
+    button = st.button("Fazer a previsão")
+
+
     # Criando um dataframe com as informações do usuário
     user_data = pd.DataFrame({
         "Pregnancies": [preg],
@@ -92,6 +95,7 @@ with tab1:
         "Weight": [weight],
         "Outcome": [0]
     })
+
     b64_pdf = None
     def generate_pdf_report(paciente_nome, prediction, decision_tree_fig):
         global b64_pdf
