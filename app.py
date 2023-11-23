@@ -266,7 +266,7 @@ with tab4:
             with st.spinner("Gerando Análise com IA..."):
                 explanation = generate_explanation(variavel_selecionada)
             # Substitua o botão pelo expander com a explicação
-            explication = button_placeholder.expander("**Exibir Explicação do Gráfico**")
+            explication = button_placeholder.expander("**Exibir Análise do Gráfico**")
             with explication:
                 st.write(explanation)   
     else:
