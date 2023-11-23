@@ -50,9 +50,10 @@ with tab1:
     # Exibindo a logo na sidebar
     st.sidebar.image(logo, use_column_width=True)
     container = st.container()
+    container.write("teste")
     
     # Criando um sidebar para inserir as informações do usuário
-    container.sidebar.header("Insira as informações do paciente:")
+    st.sidebar.header("Insira as informações do paciente:")
     paciente_nome = st.sidebar.text_input("Nome do Paciente")
     # Criando um seletor para o sexo
     sex = st.sidebar.selectbox("Sexo", ("Feminino", "Masculino"))
