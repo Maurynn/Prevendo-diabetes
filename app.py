@@ -49,12 +49,13 @@ with tab1:
     logo = Image.open("imagens/IMG_20231110_220951.png")
     # Exibindo a logo na sidebar
     st.sidebar.image(logo, use_column_width=True)
-    # Criando um sidebar para inserir as informações do usuário
-    st.sidebar.header("Insira as informações do paciente:")
-    paciente_nome = st.sidebar.text_input("Nome do Paciente")
-    # Criando um seletor para o sexo
-    sex = st.sidebar.selectbox("Sexo", ("Feminino", "Masculino"))
-    st.divider()
+    with st.container():
+        # Criando um sidebar para inserir as informações do usuário
+        st.sidebar.header("Insira as informações do paciente:")
+        paciente_nome = st.sidebar.text_input("Nome do Paciente")
+        # Criando um seletor para o sexo
+        sex = st.sidebar.selectbox("Sexo", ("Feminino", "Masculino"))
+    
     # Criando um slider para a idade
     age = st.sidebar.slider("Idade", 0, 100, 25)
     # Criando um seletor para peso
