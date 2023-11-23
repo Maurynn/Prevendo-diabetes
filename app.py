@@ -35,7 +35,7 @@ with tab1:
         df = pd.read_csv(uploaded_file)
         expander = st.expander("Mostrar Dataframe")
         with expander:
-            n_rows = st.slider("Escolha o número de linhas que você quer ver", 1, 100, 10)
+            n_rows = st.slider("Escolha o número de linhas que você quer ver", 1, 473, 10)
             # Mostrando as primeiras linhas do dataframe
             st.dataframe(df.head(n_rows))
     
