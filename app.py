@@ -49,7 +49,7 @@ with tab1:
     logo = Image.open("imagens/IMG_20231110_220951.png")
     # Exibindo a logo na sidebar
     st.sidebar.image(logo, use_column_width=True)
-    container = st.contaner()
+    container = st.container()
     
     # Criando um sidebar para inserir as informações do usuário
     container.sidebar.header("Insira as informações do paciente:")
