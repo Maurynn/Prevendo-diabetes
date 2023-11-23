@@ -261,9 +261,9 @@ with tab4:
         button_placeholder = st.empty()
 
         # Adicione um botão para gerar explicação
-        if button_placeholder.button("Gerar Explicação do Gráfico"):
+        if button_placeholder.button("Gerar Análise do Gráfico"):
             # Mostre um spinner enquanto a explicação é gerada
-            with st.spinner("Gerando Explicação..."):
+            with st.spinner("Gerando Análise com IA..."):
                 explanation = generate_explanation(variavel_selecionada)
             # Substitua o botão pelo expander com a explicação
             explication = button_placeholder.expander("**Exibir Explicação do Gráfico**")
