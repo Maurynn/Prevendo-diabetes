@@ -35,7 +35,7 @@ with tab1:
         df = pd.read_csv(uploaded_file)
         expander = st.expander("Mostrar Dataframe")
         # Mostrando as primeiras linhas do dataframe
-        expander.table(df)
+        expander.dataframe(df.head())
     
     else:
         # Mostrando uma mensagem de erro se o arquivo não foi carregado
