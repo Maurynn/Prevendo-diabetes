@@ -57,29 +57,29 @@ with tab1:
 
     # Colocando os widgets na coluna
     with col:
-    paciente_nome = st.text_input("Nome do Paciente")
-    # Criando um seletor para o sexo
-    sex = st.selectbox("Sexo", ("Feminino", "Masculino"))
-    # Criando um slider para a idade
-    age = st.slider("Idade", 0, 100, 25)
-    # Criando um seletor para peso
-    weight = st.slider("Peso", 0, 150, 65)
-    # Criando um slider para o número de gestações
-    preg = st.slider("Número de gestações", 0, 10, 0)
-    # Criando um slider para a glicose
-    glu = st.slider("Glicose", 0, 200, 100)
-    # Criando um slider para a pressão arterial
-    bp = st.slider("Pressão arterial", 0, 120, 60)
-    # Criando um slider para a espessura da pele
-    skin = st.slider("Espessura da pele", 0, 100, 20)
-    # Criando um slider para a insulina
-    ins = st.slider("Insulina", 0, 800, 100)
-    # Criando um slider para o índice de massa corporal
-    bmi = st.slider("Índice de massa corporal", 0, 50, 25)
-    # Criando um slider para a hereditariedade
-    ped = st.slider("Hereditariedade", 0.0, 1.0, 0.5)
-    # Criando um botão para fazer a previsão
-    button = st.button("Fazer a previsão")
+        paciente_nome = st.text_input("Nome do Paciente")
+        # Criando um seletor para o sexo
+        sex = st.selectbox("Sexo", ("Feminino", "Masculino"))
+        # Criando um slider para a idade
+        age = st.slider("Idade", 0, 100, 25)
+        # Criando um seletor para peso
+        weight = st.slider("Peso", 0, 150, 65)
+        # Criando um slider para o número de gestações
+        preg = st.slider("Número de gestações", 0, 10, 0)
+        # Criando um slider para a glicose
+        glu = st.slider("Glicose", 0, 200, 100)
+        # Criando um slider para a pressão arterial
+        bp = st.slider("Pressão arterial", 0, 120, 60)
+        # Criando um slider para a espessura da pele
+        skin = st.slider("Espessura da pele", 0, 100, 20)
+        # Criando um slider para a insulina
+        ins = st.slider("Insulina", 0, 800, 100)
+        # Criando um slider para o índice de massa corporal
+        bmi = st.slider("Índice de massa corporal", 0, 50, 25)
+        # Criando um slider para a hereditariedade
+        ped = st.slider("Hereditariedade", 0.0, 1.0, 0.5)
+        # Criando um botão para fazer a previsão
+        button = st.button("Fazer a previsão")
 
 
     # Criando um dataframe com as informações do usuário
