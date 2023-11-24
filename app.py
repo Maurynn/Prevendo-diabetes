@@ -147,7 +147,7 @@ with tab1:
 
             expander_decision_tree = st.expander("Árvore de Decisão")
             with expander_tree_explanation:
-            # Exibindo a árvore de decisão
+                # Exibindo a árvore de decisão
                 fig, ax = plt.subplots(figsize=(12, 8))
                 plot_tree(clf, feature_names=X.columns.tolist(), class_names=["No", "Yes"], filled=True, rounded=True, ax=ax)
                 st.pyplot(fig)
