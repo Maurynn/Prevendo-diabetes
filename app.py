@@ -27,7 +27,7 @@ with tab1:
     st.image("imagens/logo2.png")
     st.divider()
     # Criando um botão de upload
-    uploaded_file = st.file_uploader("Faça upload do arquivo csv com os dados da Kaggle", type="csv")
+    uploaded_file = st.file_uploader("Faça upload do arquivo csv com os dados da Kaggle:", type="csv")
     
     # Verificando se o arquivo foi carregado
     if uploaded_file is not None:
