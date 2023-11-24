@@ -144,56 +144,49 @@ with tab1:
             # Calculando matriz de confusão e relatório de classificação
             conf_matrix = confusion_matrix(y_test, y_pred)
             class_report = classification_report(y_test, y_pred)
-    
-            # Exibindo a árvore de decisão
-            expander_decision_tree = st.expander("Árvore de Decisão")
-            with expander_decision_tree:
-                fig, ax = plt.subplots(figsize=(12, 8))
-                plot_tree(clf, feature_names=X.columns.tolist(), class_names=["No", "Yes"], filled=True, rounded=True, ax=ax)
-                st.pyplot(fig)
-            
-                # Calculando a acurácia das previsões
-                acc = accuracy_score(y_test, y_pred)
-                st.write(f"A acurácia do modelo é {acc:.2f}")
 
-                # Adicionando a análise da árvore de decisão usando a API da OpenAI
-                def generate_tree_explanation(tree):
-                    try:
-                        prompt = f"Explique a árvore de decisão:\n{tree}"
-                        response = openai.Completion.create(
-                            engine="gpt-3.5-turbo-instruct",
-                            prompt=prompt,
-                            temperatura=0.8,
-                            max_tokens=500,
-                            n=1,
-                            stop=None,
-                        )
-                        explanation = response.choices[0].text.strip()  # Atualizado para acessar corretamente o texto da resposta
-                    except Exception as e:
-                        explanation = str(e)  # Captura e retorna a mensagem de erro, se houver
-                    return explanation
+            # Adicionando a análise da árvore de decisão usando a API da OpenAI
+            def generate_tree_explanation(tree):
+                try:
+                    prompt = f"Explique a árvore de decisão:\n{tree}"
+                    response = openai.Completion.create(
+                        engine="gpt-3.5-turbo-instruct",
+                        prompt=prompt,
+                        temperatura=0.8,
+                        max_tokens=500,
+                        n=1,
+                        stop=None,
+                    )
+                    explanation = response.choices[0].text.strip()  # Atualizado para acessar corretamente o texto da resposta
+                except Exception as e:
+                    explanation = str(e)  # Captura e retorna a mensagem de erro, se houver
+                return explanation
     
                 
-                # Crie um espaço reservado para o botão
-                button_placeholder_tree = st.empty()
+            # Crie um espaço reservado para o botão
+            button_placeholder_tree = st.empty()
 
-                # Adicione um botão para gerar explicação da árvore de decisão
-                if button_placeholder_tree.button("Gerar Análise da Árvore de Decisão"):
-                    # Mostre um spinner enquanto a explicação é gerada
-                    with st.spinner("Gerando Análise com IA..."):
-                        explanation = generate_tree_explanation("Sua árvore de decisão aqui")
+            # Adicione um botão para gerar explicação da árvore de decisão
+            if button_placeholder_tree.button("Gerar Análise da Árvore de Decisão"):
+                # Mostre um spinner enquanto a explicação é gerada
+                with st.spinner("Gerando Análise com IA..."):
+                    explanation = generate_tree_explanation("Sua árvore de decisão aqui")
 
-                    # Substitua o botão pelo expander com a explicação
-                    expander_tree_explanation = button_placeholder_tree.expander("**Análise da Árvore de Decisão**")
-                    with expander_tree_explanation:
-                        # Exibindo a árvore de decisão
-                        fig, ax = plt.subplots(figsize=(12, 8))
-                        plot_tree(clf, feature_names=X.columns.tolist(), class_names=["No", "Yes"], filled=True, rounded=True, ax=ax)
-                        st.pyplot(fig)
+                # Substitua o botão pelo expander com a explicação
+                expander_tree_explanation = button_placeholder_tree.expander("**Análise da Árvore de Decisão**")
+                with expander_tree_explanation:
+                    # Exibindo a árvore de decisão
+                    fig, ax = plt.subplots(figsize=(12, 8))
+                    plot_tree(clf, feature_names=X.columns.tolist(), class_names=["No", "Yes"], filled=True, rounded=True, ax=ax)
+                    st.pyplot(fig)
+                        
+                    # Calculando a acurácia das previsões
+                    acc = accuracy_score(y_test, y_pred)
+                    st.write(f"A acurácia do modelo é {acc:.2f}")
 
-                        # Exibindo a explicação gerada pela OpenAI
-                        st.write("**Explicação da Árvore de Decisão:**")
-                        st.write(explanation)
+                    # Exibindo a explicação gerada pela OpenAI
+                    st.write("**Explicação da Árvore de Decisão:**")
+                    st.write(explanation)
                 
 
             expander_metrics = st.expander("📊 Métricas adicionais após previsão")
