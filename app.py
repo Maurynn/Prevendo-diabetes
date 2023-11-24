@@ -181,7 +181,7 @@ with tab1:
                 if button_placeholder_tree.button("Gerar Análise da Árvore de Decisão"):
                     # Mostre um spinner enquanto a explicação é gerada
                     with st.spinner("Gerando Análise com IA..."):
-                        tree_explanation = generate_tree_explanation("Sua árvore de decisão aqui")
+                        explanation = generate_tree_explanation("Sua árvore de decisão aqui")
 
                     # Substitua o botão pelo expander com a explicação
                     expander_tree_explanation = button_placeholder_tree.expander("**Análise da Árvore de Decisão**")
@@ -193,7 +193,7 @@ with tab1:
 
                         # Exibindo a explicação gerada pela OpenAI
                         st.write("**Explicação da Árvore de Decisão:**")
-                        st.write(tree_explanation)
+                        st.write(explanation)
                 
 
             expander_metrics = st.expander("📊 Métricas adicionais após previsão")
