@@ -86,7 +86,6 @@ with tab1:
         "BMI": [bmi],
         "DiabetesPedigreeFunction": [ped],
         "Age": [age],
-        "Weight": [peso],
         "Outcome": [0]
     })
 
