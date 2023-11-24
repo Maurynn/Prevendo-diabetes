@@ -234,7 +234,7 @@ Fontes: [Sociedade Brasileira de Diabetes](http://www2.datasus.gov.br/SIAB/index
 
 # Função para gerar explicação usando GPT-3
 def generate_explanation(graph_type):
-    prompt = f"Explique em até 600 caracteres, de forma objetiva, detalhada e respeitando os parágrafos do gráfico de distribuições {graph_type}, comente também sobre os números e cores do gráfico.."
+    prompt = f"Explique em até 600 caracteres o gráfico de distribuições {graph_type}, de forma objetiva, detalhada e respeitando os parágrafos."
     try:
         response = openai.Completion.create(
             engine="gpt-3.5-turbo-instruct",  # Atualizado para o engine mais recente
