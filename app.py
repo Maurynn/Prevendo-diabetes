@@ -158,17 +158,22 @@ with tab1:
 
                 # Adicionando a análise da árvore de decisão usando a API da OpenAI
                 def generate_tree_explanation(tree):
-                    prompt = f"Explique a árvore de decisão:\n{tree}"
-                    response = openai.Completion.create(
-                        engine="gpt-3.5-turbo-instruct",
-                        prompt=prompt,
-                        temperatura=0.8,
-                        max_tokens=500,
-                        n=1,
-                        stop=None,
-                )
+                    try:
+                        prompt = f"Explique a árvore de decisão:\n{tree}"
+                        response = openai.Completion.create(
+                            engine="gpt-3.5-turbo-instruct",
+                            prompt=prompt,
+                            temperatura=0.8,
+                            max_tokens=500,
+                            n=1,
+                            stop=None,
+                        )
+                        explanation = response.choices[0].text.strip()  # Atualizado para acessar corretamente o texto da resposta
+                    except Exception as e:
+                        explanation = str(e)  # Captura e retorna a mensagem de erro, se houver
+                    return explanation
     
-                return response.choices[0].text
+                
                 # Crie um espaço reservado para o botão
                 button_placeholder_tree = st.empty()
 
